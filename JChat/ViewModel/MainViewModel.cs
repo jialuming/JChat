@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using JChat.Model;
+using JEntity;
 
 namespace JChat.ViewModel
 {
@@ -13,6 +14,38 @@ namespace JChat.ViewModel
     {
         private readonly IDataService _dataService;
 
+
+        #region INPC
+        /// <summary>
+        /// The <see cref="TUSer" /> property's name.
+        /// </summary>
+        public const string TUSerPropertyName = "TUSer";
+
+        private TUser _tUser = BasicModel.TUser;
+
+        /// <summary>
+        /// Sets and gets the TUSer property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public TUser TUSer
+        {
+            get
+            {
+                return _tUser;
+            }
+
+            set
+            {
+                if (_tUser == value)
+                {
+                    return;
+                }
+
+                _tUser = value;
+                RaisePropertyChanged(TUSerPropertyName);
+            }
+        }
+        #endregion
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
         /// </summary>

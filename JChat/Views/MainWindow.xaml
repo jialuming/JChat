@@ -1,0 +1,50 @@
+﻿<Window x:Class="JChat.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        mc:Ignorable="d ignore"
+        Height="300"
+        Width="300"
+        Title="MVVM Light Application"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" x:Name="TitleBarHeight"/>
+            <RowDefinition Height="Auto" x:Name="UserInfoHeight"/>
+            <RowDefinition Height="Auto" x:Name="SearchBarHeight"/>
+            <RowDefinition Height="*" x:Name="WorkSpaceHeight"/>
+            <RowDefinition Height="Auto" x:Name="ExtenceHeight"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0">
+            <Grid>
+                <Image/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="SkinBtn" Height="30" Width="30"/>
+                    <Button x:Name="MinBtn" Height="30" Width="30"/>
+                    <Button x:Name="CloseBtn" Height="30" Width="30"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1">
+            <DockPanel>
+                <Image Source="{Binding TUSer.IcoPath}"/>
+                <StackPanel>
+                    <TextBlock Text="{Binding TUser.Nickame}"/>
+                    <TextBlock Text="{Binding TUSer.Signature}"/>
+                    <ItemsControl ItemsSource="{Binding }"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <Border Grid.Row="2">
+            <TextBox/>
+        </Border>
+        <Border Grid.Row="3">
+
+        </Border>
+        <Border Grid.Row="4">
+            <ItemsControl ItemsSource="{Binding}"/>
+        </Border>
+    </Grid>
+</Window>

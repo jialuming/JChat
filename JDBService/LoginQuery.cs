@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JDBService
 {
-    public class Class1
+    public class LoginQuery
     {
     }
 }

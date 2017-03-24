@@ -39,6 +39,7 @@ namespace JChat.ViewModel
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<JCLoginViewModel>();
         }
 
         /// <summary>
@@ -55,6 +56,19 @@ namespace JChat.ViewModel
             }
         }
 
+        /// <summary>
+        /// Gets the JCLogin property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public JCLoginViewModel JCLogin
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<JCLoginViewModel>();
+            }
+        }
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>

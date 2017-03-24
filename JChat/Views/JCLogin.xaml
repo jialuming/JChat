@@ -1,0 +1,18 @@
+﻿<Window x:Class="JChat.Views.JCLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JChat.Views"
+        mc:Ignorable="d"
+        Title="JCLogin" Height="300" Width="300"
+       DataContext="{Binding JCLogin, Source={StaticResource Locator}}" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <TextBox Text="{Binding UserName}"/>
+            <TextBox Text="{Binding Password}"/>
+            <Button Content="登录" Command="{Binding LoginCommand}"/>
+            <TextBlock Text="{Binding ErrorText}"/>
+        </StackPanel>
+    </Grid>
+</Window>

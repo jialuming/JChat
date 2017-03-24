@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDBService", "JDBService\JD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBLLService", "JBLLService\JBLLService.csproj", "{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JEntity", "JEntity\JEntity.csproj", "{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

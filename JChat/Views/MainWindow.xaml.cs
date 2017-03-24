@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using JChat.ViewModel;
 
-namespace JChat
+namespace JChat.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
