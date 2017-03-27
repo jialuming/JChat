@@ -75,11 +75,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Model\BasicModel.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Model\LoginService.cs" />
     <Compile Include="ViewModel\JCLoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -138,14 +138,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JBLLService\JBLLService.csproj">
-      <Project>{03df402d-250b-4a96-8e3b-fddc3ea2e1bc}</Project>
-      <Name>JBLLService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\JEntity\JEntity.csproj">
       <Project>{c2fc86df-6b34-4db9-84c6-7b1790865c91}</Project>
       <Name>JEntity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Design\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

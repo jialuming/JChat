@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JEntity
+namespace JService.Services
 {
-    public class EntityBase
+    interface ISocketService
     {
-        public EntityBase()
-        {
-
-        }
+        ISocketPool SocketPool { get; set; }
     }
 }

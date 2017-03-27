@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}</ProjectGuid>
+    <ProjectGuid>{3A8A6DBE-AF64-41D7-92E2-5AEE661E52C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JEntity</RootNamespace>
-    <AssemblyName>JEntity</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>JService</RootNamespace>
+    <AssemblyName>JService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,9 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityBase.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Services\ISocketPool.cs" />
+    <Compile Include="Services\ISocketService.cs" />
+    <Compile Include="Services\MessageManager.cs" />
+    <Compile Include="Services\MessagePool.cs" />
+    <Compile Include="Services\MessageResult.cs" />
+    <Compile Include="Services\TCPPool.cs" />
+    <Compile Include="Services\TCPService.cs" />
+    <Compile Include="Services\UDPPool.cs" />
+    <Compile Include="Services\UDPService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JEntity\JEntity.csproj">
+      <Project>{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}</Project>
+      <Name>JEntity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

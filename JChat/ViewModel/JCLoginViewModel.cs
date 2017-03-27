@@ -1,6 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
-using JBLLService;
 using JChat.Model;
 using System;
 
@@ -162,20 +161,20 @@ namespace JChat.ViewModel
                     ?? (_loginCommand = new RelayCommand(
                     () =>
                     {
-                        int result = new LoginBLL().CheckUser(UserName, Password);
-                        if (result == 0)
-                        {
-                            BasicModel.TUser.Name = this.UserName;
-                            BasicModel.TUser.Nickame = "123";
-                            BasicModel.TUser.Signature = "123123123";
-                            BasicModel.LoginTime = DateTime.Now;
-                            GalaSoft.MvvmLight.Messaging.Messenger.Default.Send<object>(null, "OpenMainWindow");
-                        }
-                        else if (result == 1)
-                        {
-                            ErrorText = "账号密码错误";
-                            ShowErrorTip = true;
-                        }
+                        //int result = new LoginBLL().CheckUser(UserName, Password);
+                        //if (result == 0)
+                        //{
+                        //    BasicModel.TUser.Name = this.UserName;
+                        //    BasicModel.TUser.Nickame = "123";
+                        //    BasicModel.TUser.Signature = "123123123";
+                        //    BasicModel.LoginTime = DateTime.Now;
+                        //    GalaSoft.MvvmLight.Messaging.Messenger.Default.Send<object>(null, "OpenMainWindow");
+                        //}
+                        //else if (result == 1)
+                        //{
+                        //    ErrorText = "账号密码错误";
+                        //    ShowErrorTip = true;
+                        //}
 
                     }));
             }

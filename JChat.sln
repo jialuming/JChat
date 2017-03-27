@@ -11,13 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JToolsLib", "JToolsLib\JToo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JExtensionCore", "JExtensionCore\JExtensionCore.csproj", "{30880BF2-C8DC-4CB7-97A2-783A624080D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWebService", "JWebService\JWebService.csproj", "{06DD1765-8D24-4454-B2D3-5C08890550DC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JDBService", "JDBService\JDBService.csproj", "{2031BBC8-F019-45CC-A25D-19E0C3A8C47D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JBLLService", "JBLLService\JBLLService.csproj", "{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JEntity", "JEntity\JEntity.csproj", "{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JService", "JService\JService.csproj", "{3A8A6DBE-AF64-41D7-92E2-5AEE661E52C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,22 +39,18 @@ Global
 		{30880BF2-C8DC-4CB7-97A2-783A624080D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30880BF2-C8DC-4CB7-97A2-783A624080D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30880BF2-C8DC-4CB7-97A2-783A624080D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06DD1765-8D24-4454-B2D3-5C08890550DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06DD1765-8D24-4454-B2D3-5C08890550DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06DD1765-8D24-4454-B2D3-5C08890550DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06DD1765-8D24-4454-B2D3-5C08890550DC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2031BBC8-F019-45CC-A25D-19E0C3A8C47D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2031BBC8-F019-45CC-A25D-19E0C3A8C47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2031BBC8-F019-45CC-A25D-19E0C3A8C47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2031BBC8-F019-45CC-A25D-19E0C3A8C47D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03DF402D-250B-4A96-8E3B-FDDC3EA2E1BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8A6DBE-AF64-41D7-92E2-5AEE661E52C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8A6DBE-AF64-41D7-92E2-5AEE661E52C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8A6DBE-AF64-41D7-92E2-5AEE661E52C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8A6DBE-AF64-41D7-92E2-5AEE661E52C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

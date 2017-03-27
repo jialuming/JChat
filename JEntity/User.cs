@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace JEntity
 {
-    public class TUser : EntityBase
+    public class User : EntityBase
     {
-        public string TUser_ID { get; set; }
+        public int User_ID { get; set; }
+        public string UserID { get; set; }
+        public string Password { get; set; }
         public string Name { get; set; }
         public string Nickame { get; set; }
         public string EMail { get; set; }

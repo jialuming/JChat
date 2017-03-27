@@ -10,8 +10,8 @@ namespace JChat.Model
     public class BasicModel
     {
         public static DateTime LoginTime;
-        public static TUser TUser=new TUser();
-        public BasicModel(TUser tUser)
+        public static User TUser=new User();
+        public BasicModel(User tUser)
         {
             TUser = tUser;
         }

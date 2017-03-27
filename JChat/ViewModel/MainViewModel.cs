@@ -21,13 +21,13 @@ namespace JChat.ViewModel
         /// </summary>
         public const string TUSerPropertyName = "TUSer";
 
-        private TUser _tUser = BasicModel.TUser;
+        private User _tUser = BasicModel.TUser;
 
         /// <summary>
         /// Sets and gets the TUSer property.
         /// Changes to that property's value raise the PropertyChanged event. 
         /// </summary>
-        public TUser TUSer
+        public User TUSer
         {
             get
             {
