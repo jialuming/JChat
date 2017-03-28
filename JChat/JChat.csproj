@@ -54,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.2.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -76,6 +77,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\BasicModel.cs" />
+    <Compile Include="Model\MessageInfo.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
@@ -141,6 +143,10 @@
     <ProjectReference Include="..\JEntity\JEntity.csproj">
       <Project>{c2fc86df-6b34-4db9-84c6-7b1790865c91}</Project>
       <Name>JEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JService\JService.csproj">
+      <Project>{3a8a6dbe-af64-41d7-92e2-5aee661e52c9}</Project>
+      <Name>JService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

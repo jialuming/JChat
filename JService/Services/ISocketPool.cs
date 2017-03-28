@@ -3,7 +3,8 @@ using System.Net.Sockets;
 
 namespace JService.Services
 {
-    interface ISocketPool
+
+   public interface ISocketPool
     {
         void Add(User user, Socket Socket);
         void Remove(User user);

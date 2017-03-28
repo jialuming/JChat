@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.CommandWpf;
 using JChat.Model;
 using System;
+using System.Reflection;
 
 namespace JChat.ViewModel
 {
@@ -13,12 +14,14 @@ namespace JChat.ViewModel
     /// </summary>
     public class JCLoginViewModel : ViewModelBase
     {
+        private readonly IDataService _dataService;
         #region Construction
         /// <summary>
         /// Initializes a new instance of the JCLoginViewModel class.
         /// </summary>
-        public JCLoginViewModel()
+        public JCLoginViewModel(IDataService dataService)
         {
+            _dataService = dataService;
         }
         #endregion
 
@@ -161,21 +164,9 @@ namespace JChat.ViewModel
                     ?? (_loginCommand = new RelayCommand(
                     () =>
                     {
-                        //int result = new LoginBLL().CheckUser(UserName, Password);
-                        //if (result == 0)
-                        //{
-                        //    BasicModel.TUser.Name = this.UserName;
-                        //    BasicModel.TUser.Nickame = "123";
-                        //    BasicModel.TUser.Signature = "123123123";
-                        //    BasicModel.LoginTime = DateTime.Now;
-                        //    GalaSoft.MvvmLight.Messaging.Messenger.Default.Send<object>(null, "OpenMainWindow");
-                        //}
-                        //else if (result == 1)
-                        //{
-                        //    ErrorText = "账号密码错误";
-                        //    ShowErrorTip = true;
-                        //}
-
+                        _dataService.CheckUser(UserName, Password);
+                        //new JService.Model.MessageInfo("1.1.1.1", JService.Model.MessageType.CheckUser, "213123", 0, 0, "12312fsdfsdafjklasd11234561234561234562345612345612345612345612345612356fdasfsdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj31212312fsdfsdafjklasdfdasfsdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj31212312fsdfsdafjklasdfdasfsdjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj312").GetBytes();
+                       
                     }));
             }
         }

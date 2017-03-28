@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JEntity;
+using JService.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -7,11 +9,36 @@ using System.Threading.Tasks;
 
 namespace JService.Services
 {
-    class MessageManager
+    public class MessageManager
     {
-        public MessageResult MessageAnalysis(Byte[] bytes)
+        private static MessageManager _instence;
+
+        public static MessageManager Instence
         {
-            MessageResult Result = new MessageResult();
+            get
+            {
+                return _instence ?? (_instence = new MessageManager());
+            }
+        }
+        private Socket _mainTcp;
+
+        public Socket MainTcp
+        {
+            get { return _mainTcp; }
+            set { _mainTcp = value; }
+        }
+
+        private Socket _mainUdp;
+
+        public Socket MainUdp
+        {
+            get { return _mainUdp; }
+            set { _mainUdp = value; }
+        }
+
+        public MessageInfo MessageAnalysis(Byte[] bytes)
+        {
+            MessageInfo Result = new MessageInfo();
             return Result;
         }
         /// <summary>
@@ -20,16 +47,43 @@ namespace JService.Services
         /// <param name="socket"></param>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        MessageSendState MessageSend(Socket socket, byte[] bytes)
+        public void MessageSend(Socket socket, byte[] bytes)
         {
             socket.Send(bytes, SocketFlags.None);
-            return MessageSendState.Failed;
+        }
+        /// <summary>
+        /// 发送信息
+        /// </summary>
+        /// <param name="socket"></param>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public void MessageSend(byte[] bytes)
+        {
+            if (MainTcp == null)
+            {
+                _mainTcp = new TCPService().StartSocket();
+            }
+            if (MainTcp != null && MainTcp.Connected)
+            {
+                //byte[] bytes = Encoding.Unicode.GetBytes(MessageType.None + "|" + userName + "|" + password);
+                MainTcp.Send(bytes);
+            }
+        }
+        /// <summary>
+        /// 发送信息
+        /// </summary>
+        /// <param name="socket"></param>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public void MessageSend(string userName, string password)
+        {
+            
         }
         /// <summary>
         /// 回应
         /// </summary>
         /// <param name="socket"></param>
-        void Response(Socket socket)
+        public void Response(Socket socket)
         {
 
         }

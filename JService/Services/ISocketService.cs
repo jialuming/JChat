@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JService.Services
 {
-    interface ISocketService
+    public interface ISocketService
     {
         ISocketPool SocketPool { get; set; }
     }
