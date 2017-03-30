@@ -10,12 +10,6 @@ namespace JService.Services
 {
     public class TCPService : ISocketService
     {
-        private ISocketPool _socketPool = new TCPPool();
-        public ISocketPool SocketPool
-        {
-            get { return _socketPool; }
-            set { _socketPool = value; }
-        }
         /// <summary>
         /// Socket Server 演示
         /// 作者：陈希章
@@ -23,27 +17,35 @@ namespace JService.Services
         /// <param name="args"></param>
        public Socket StartSocket()
         {
-            //创建一个Socket
-            var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                //创建一个Socket
+                var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            //连接到指定服务器的指定端口
-            //方法参考：http://msdn.microsoft.com/zh-cn/library/system.net.sockets.socket.connect.aspx
-            socket.Connect("localhost", 2333);
-            Console.WriteLine("connect to the server");
+                //连接到指定服务器的指定端口
+                //方法参考：http://msdn.microsoft.com/zh-cn/library/system.net.sockets.socket.connect.aspx
+                socket.Connect("localhost", 3324);
+                Console.WriteLine("connect to the server");
 
-            //实现接受消息的方法
+                //实现接受消息的方法
 
-            //方法参考：http://msdn.microsoft.com/zh-cn/library/system.net.sockets.socket.beginreceive.aspx
-            socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
+                //方法参考：http://msdn.microsoft.com/zh-cn/library/system.net.sockets.socket.beginreceive.aspx
+                socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveMessage), socket);
 
-            //接受用户输入，将消息发送给服务器端
-            //while (true)
-            //{
-            //    var message = "Message from client : " + Console.ReadLine();
-            //    var outputBuffer = Encoding.Unicode.GetBytes(message);
-            //    socket.BeginSend(outputBuffer, 0, outputBuffer.Length, SocketFlags.None, null, null);
-            //}
-            return socket;
+                //接受用户输入，将消息发送给服务器端
+                //while (true)
+                //{
+                //    var message = "Message from client : " + Console.ReadLine();
+                //    var outputBuffer = Encoding.Unicode.GetBytes(message);
+                //    socket.BeginSend(outputBuffer, 0, outputBuffer.Length, SocketFlags.None, null, null);
+                //}
+                return socket;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+          
         }
 
 
@@ -60,6 +62,7 @@ namespace JService.Services
                 //读取出来消息内容
                 var message = Encoding.Unicode.GetString(buffer, 0, length);
                 //显示消息
+                MessageManager.Instence.MessageAnalysis(socket, buffer, length);
                 Console.WriteLine(message);
 
                 //接收下一个消息(因为这是一个递归的调用，所以这样就可以一直接收消息了）
@@ -70,7 +73,11 @@ namespace JService.Services
                 Console.WriteLine(ex.Message);
             }
         }
-        
+        //public bool DoActive()
+        //{
+            //m_outgoingDataAssembler.AddSuccess();
+            //return DoSendResult();
+        //}
     }
 }
 

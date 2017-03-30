@@ -13,11 +13,11 @@ namespace JChat.Model
 
         User GetUserInfo();
 
-        bool SendMessage(MessageInfo message);
+        bool SendMessage(ChatInfo message);
 
         void SetUserInfo(User user);
 
-        void ReceiveMessage(MessageInfo messageInfo);
+        void ReceiveMessage(ChatInfo messageInfo);
 
     }
 }

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace JService.Model
+namespace JEntity.WebService
 {
-    [Serializable]
     public struct MessageInfo
     {
         public Guid Guid { get; set; }
@@ -15,9 +11,9 @@ namespace JService.Model
         public string UserID { get; set; }
         public int Number { get; set; }
         public long Length { get; set; }
-        public string MessageText { get; set; }
+        public MessageText MessageText { get; set; }
 
-        public MessageInfo(string version, MessageType messageType, string userID, int number, string messageText, long length = 0)
+        public MessageInfo(string version, MessageType messageType, string userID, int number, long length, MessageText messageText)
         {
             this.Guid = Guid.NewGuid();
             Version = version;
@@ -28,10 +24,9 @@ namespace JService.Model
             MessageText = messageText;
 
         }
-
         public byte[] GetBytes()
         {
-            string msg = string.Format("{{ Version:'{0}',MessageType:'{1}',UserID:'{2}',Number:'{3}',Length='{4}',Message:'{{{5}}}'}}", Version, (int)MessageType, UserID, Number, Length.ToString(), MessageText);
+            string msg = string.Format("{0}|{1}|{2}|{3}|{4}|{5}", Version, (int)MessageType, UserID, Number, Length.ToString(), MessageText);
 
             byte[] msgBuffer = Encoding.Unicode.GetBytes(msg);
             byte[] lengthBuffer = Encoding.Unicode.GetBytes(msgBuffer.LongLength.ToString());
@@ -43,14 +38,14 @@ namespace JService.Model
             {
                 allLength -= 2;
             }
-            string msg2 = string.Format("{{ Version:'{0}',MessageType:'{1}',UserID:'{2}',Number:'{3}',Length='{4}',Message:'{{{5}}}'}}", Version, (int)MessageType, UserID, Number, allLength.ToString(), MessageText);
+            string msg2 = string.Format("{0}|{1}|{2}|{3}|{4}|{5}", Version, (int)MessageType, UserID, Number, allLength.ToString(), MessageText);
             lengthBuffer = Encoding.Unicode.GetBytes(msg2);
             return lengthBuffer;
         }
     }
     public enum MessageType
     {
-        None = 0,
+        Alive = 0,
         CheckUser = 1,
         /// <summary>
         /// 转发

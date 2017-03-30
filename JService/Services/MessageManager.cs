@@ -1,54 +1,68 @@
 ﻿using JEntity;
-using JService.Model;
+using JEntity.WebService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace JService.Services
 {
     public class MessageManager
     {
+        public delegate void GetMessageHandler(Socket socket, MessageInfo messageInfo);
+        public event GetMessageHandler GetMessage;
+
         private static MessageManager _instence;
 
         public static MessageManager Instence
         {
-            get
+            get { return _instence ?? (_instence = new MessageManager()); }
+        }
+
+        public SocketPool AliveSocketPool { get; set; }
+        public SocketPool UDPSocketPool { get; set; }
+
+        private Socket _mainSocket;
+
+        private Socket MainSocket
+        {
+            get { return _mainSocket ?? (_mainSocket = new TCPService().StartSocket()); }
+        }
+        public MessageManager()
+        {
+        }
+        public void MessageAnalysis(Socket socket, byte[] bytes, int length)
+        {
+            try
             {
-                return _instence ?? (_instence = new MessageManager());
+                var message = Encoding.Unicode.GetString(bytes, 0, length);
+                MessageInfo Result = Deserialize<MessageInfo>(message);
+                GetMessage?.Invoke(socket, Result);
             }
-        }
-        private Socket _mainTcp;
+            catch (ArgumentException)
+            {
+                Console.WriteLine("无效的信息");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
-        public Socket MainTcp
-        {
-            get { return _mainTcp; }
-            set { _mainTcp = value; }
-        }
-
-        private Socket _mainUdp;
-
-        public Socket MainUdp
-        {
-            get { return _mainUdp; }
-            set { _mainUdp = value; }
         }
 
-        public MessageInfo MessageAnalysis(Byte[] bytes)
-        {
-            MessageInfo Result = new MessageInfo();
-            return Result;
-        }
         /// <summary>
         /// 发送信息
         /// </summary>
         /// <param name="socket"></param>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public void MessageSend(Socket socket, byte[] bytes)
+        public void MessageSend(Socket socket, MessageInfo messageInfo)
         {
+            string s = Serialize(messageInfo);
+            byte[] bytes = Encoding.Unicode.GetBytes(s);
             socket.Send(bytes, SocketFlags.None);
         }
         /// <summary>
@@ -57,27 +71,11 @@ namespace JService.Services
         /// <param name="socket"></param>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        public void MessageSend(byte[] bytes)
+        public void MessageSend(MessageInfo messageInfo)
         {
-            if (MainTcp == null)
-            {
-                _mainTcp = new TCPService().StartSocket();
-            }
-            if (MainTcp != null && MainTcp.Connected)
-            {
-                //byte[] bytes = Encoding.Unicode.GetBytes(MessageType.None + "|" + userName + "|" + password);
-                MainTcp.Send(bytes);
-            }
-        }
-        /// <summary>
-        /// 发送信息
-        /// </summary>
-        /// <param name="socket"></param>
-        /// <param name="bytes"></param>
-        /// <returns></returns>
-        public void MessageSend(string userName, string password)
-        {
-            
+            string s = Serialize(messageInfo);
+            byte[] bytes = Encoding.Unicode.GetBytes(s);
+            MainSocket.Send(bytes, SocketFlags.None);
         }
         /// <summary>
         /// 回应
@@ -88,5 +86,25 @@ namespace JService.Services
 
         }
 
+        public string Serialize(object obj)
+        {
+            JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+            return jsonSerializer.Serialize(obj);
+        }
+        // Json->Object
+        public T Deserialize<T>(string json)
+        {
+            try
+            {
+                JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+                //执行反序列化
+                T obj = jsonSerializer.Deserialize<T>(json);
+                return obj;
+            }
+            catch (Exception)
+            {
+                return default(T);
+            }
+        }
     }
 }

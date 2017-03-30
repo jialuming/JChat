@@ -1,4 +1,5 @@
 ﻿using JEntity;
+using JEntity.WebService;
 using JService.Services;
 using System;
 using System.Text;
@@ -19,16 +20,14 @@ namespace JChat.Model
 
         public bool CheckUser(string userName, string password)
         {
-            MessageManager mm = MessageManager.Instence;
-            JService.Model.MessageInfo info = new JService.Model.MessageInfo(App.ResourceAssembly.GetName(false).Version.ToString(),
-                           JService.Model.MessageType.CheckUser,
-                           userName,
-                           0,
-                           "P:'" + password + "'");
-            string s = Serialize(info);
-            //byte[] bytes = info.GetBytes(); Encoding.Unicode.GetBytes(msg);
-            byte[] bytes = Encoding.Unicode.GetBytes(s);
-            mm.MessageSend(bytes);
+            //MessageManager mm = MessageManager.Instence;
+            //MessageInfo info = new MessageInfo(App.ResourceAssembly.GetName(false).Version.ToString(),
+            //                MessageType.CheckUser,
+            //                userName,
+            //                0, 0,
+            //                new MessageText() { P = password });
+            ////byte[] bytes = info.GetBytes(); Encoding.Unicode.GetBytes(msg);
+            //mm.MessageSend(info);
             return true;
         }
         // Object->Json
@@ -43,7 +42,7 @@ namespace JChat.Model
             throw new NotImplementedException();
         }
 
-        public bool SendMessage(MessageInfo message)
+        public bool SendMessage(ChatInfo message)
         {
             throw new NotImplementedException();
         }
@@ -53,7 +52,7 @@ namespace JChat.Model
             throw new NotImplementedException();
         }
 
-        public void ReceiveMessage(MessageInfo messageInfo)
+        public void ReceiveMessage(ChatInfo messageInfo)
         {
             throw new NotImplementedException();
         }

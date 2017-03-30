@@ -10,7 +10,7 @@ namespace JChat.ViewModel
     /// See http://www.mvvmlight.net
     /// </para>
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : JViewModelBase
     {
         private readonly IDataService _dataService;
 

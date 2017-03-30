@@ -7,9 +7,9 @@ using System.Windows.Media;
 
 namespace JChat.Model
 {
-    public class MessageInfo
+    public class ChatInfo
     {
-        public MessageType MessageType { get; set; }
+        public ChatType MessageType { get; set; }
         public string Text { get; set; }
         public FontFamily FontFamily { get; set; }
         public double FontSize { get; set; }
@@ -17,14 +17,14 @@ namespace JChat.Model
         public ImageSource ImageSource { get; set; }
 
 
-        public MessageInfo(string text) : this(MessageType.Text, text, new FontFamily(), 14)
+        public ChatInfo(string text) : this(ChatType.Text, text, new FontFamily(), 14)
         {
 
         }
-        public MessageInfo(MessageType messageType, string text) : this(messageType, text, new FontFamily(), 14)
+        public ChatInfo(ChatType messageType, string text) : this(messageType, text, new FontFamily(), 14)
         {
         }
-        public MessageInfo(MessageType messageType, string text, FontFamily fontFamily, double fontSize)
+        public ChatInfo(ChatType messageType, string text, FontFamily fontFamily, double fontSize)
         {
             MessageType = messageType;
             Text = text;
@@ -33,7 +33,7 @@ namespace JChat.Model
         }
     }
 
-    public enum MessageType
+    public enum ChatType
     {
         Text,
         Voice,

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JService.Services
+namespace JEntity
 {
-    public interface ISocketService
+    public class SocketInfo
     {
+        public int MyProperty { get; set; }
     }
 }

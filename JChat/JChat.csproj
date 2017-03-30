@@ -77,12 +77,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\BasicModel.cs" />
-    <Compile Include="Model\MessageInfo.cs" />
+    <Compile Include="Model\ChatInfo.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Model\DataService.cs" />
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\LoginService.cs" />
     <Compile Include="ViewModel\JCLoginViewModel.cs" />
+    <Compile Include="ViewModel\JViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\JCLogin.xaml.cs">
