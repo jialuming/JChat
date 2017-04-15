@@ -42,15 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ISocketPool.cs" />
-    <Compile Include="Services\ISocketService.cs" />
-    <Compile Include="Services\MessageManager.cs" />
-    <Compile Include="Services\MessagePool.cs" />
-    <Compile Include="Services\TCPService.cs" />
-    <Compile Include="Services\SocketPool.cs" />
-    <Compile Include="Services\UDPService.cs" />
+    <Compile Include="SocketService\AsyncSocketProtocolCore\BaseSocketProtocol.cs" />
+    <Compile Include="SocketService\AsyncSocketProtocolCore\ProtocolKey.cs" />
+    <Compile Include="SocketService\BufferManager.cs" />
+    <Compile Include="SocketService\Server\AsyncSocketInvokeElement.cs" />
+    <Compile Include="SocketService\Server\AsyncSocketServer.cs" />
+    <Compile Include="SocketService\Server\AsyncSocketUserToken.cs" />
+    <Compile Include="SocketService\Server\AsyncSocketUserTokenList.cs" />
+    <Compile Include="SocketService\Server\AsyncUserToken.cs" />
+    <Compile Include="SocketService\Server\AsyncSocketAsyncEventArgsPool.cs" />
+    <Compile Include="SocketService\Server\IncomingDataParser.cs" />
+    <Compile Include="SocketService\Server\OutgoingDataAssembler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JEntity\JEntity.csproj">
@@ -59,7 +62,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="SocketService\Client\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

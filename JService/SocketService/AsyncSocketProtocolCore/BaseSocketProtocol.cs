@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JService.Services
+namespace JService.SocketService.AsyncSocketProtocolCore
 {
-    class MessagePool
+    class BaseSocketProtocol
     {
     }
 }

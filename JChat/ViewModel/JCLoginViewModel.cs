@@ -3,7 +3,6 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using JChat.Model;
 using JEntity.WebService;
-using JService.Services;
 using System;
 using System.Net.Sockets;
 
@@ -154,55 +153,55 @@ namespace JChat.ViewModel
             }
         }
         #endregion
-        public override void _messageManeger_GetMessage(Socket socket, MessageInfo messageInfo)
-        {
-            base._messageManeger_GetMessage(socket, messageInfo);
-            switch (messageInfo.MessageType)
-            {
-                case MessageType.Alive:
-                    break;
-                case MessageType.CheckUser:
-                    CheckUser(socket, messageInfo);
-                    break;
-                case MessageType.SendMessage:
-                    break;
-                case MessageType.GetFriendList:
-                    break;
-                case MessageType.GetUserInfo:
-                    break;
-                case MessageType.Request:
-                    break;
-                default:
-                    break;
-            }
-        }
-        private void CheckUser(System.Net.Sockets.Socket socket, MessageInfo messageInfo)
-        {
-            if (messageInfo.MessageText.Result == 4)
-            {
+        //public override void _messageManeger_GetMessage(Socket socket, MessageInfo messageInfo)
+        //{
+        //    base._messageManeger_GetMessage(socket, messageInfo);
+        //    switch (messageInfo.MessageType)
+        //    {
+        //        case MessageType.Alive:
+        //            break;
+        //        case MessageType.CheckUser:
+        //            CheckUser(socket, messageInfo);
+        //            break;
+        //        case MessageType.SendMessage:
+        //            break;
+        //        case MessageType.GetFriendList:
+        //            break;
+        //        case MessageType.GetUserInfo:
+        //            break;
+        //        case MessageType.Request:
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
+        //private void CheckUser(System.Net.Sockets.Socket socket, MessageInfo messageInfo)
+        //{
+        //    if (messageInfo.MessageText.Result == 4)
+        //    {
 
-            }
-            if (messageInfo.MessageText.Result == 1)
-            {
-                System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
-                {
-                    Messenger.Default.Send<object>(this, "OpenMainWindow");
-                    Messenger.Default.Send<object>(this, "CloseWindow");
-                }));
-                //登陆成功
-                MessageInfo info = new MessageInfo(App.ResourceAssembly.GetName(false).Version.ToString(),
-                                   MessageType.CheckUser,
-                                   messageInfo.UserID,
-                                   0, 0,
-                                   new MessageText() { Result = 2 });
-                MessageManeger.MessageSend(info);
-            }
-            else
-            {
-                ErrorText = "账号密码错误";
-            }
+        //    }
+        //    if (messageInfo.MessageText.Result == 1)
+        //    {
+        //        System.Windows.Application.Current.Dispatcher.Invoke(new Action(() =>
+        //        {
+        //            Messenger.Default.Send<object>(this, "OpenMainWindow");
+        //            Messenger.Default.Send<object>(this, "CloseWindow");
+        //        }));
+        //        //登陆成功
+        //        MessageInfo info = new MessageInfo(App.ResourceAssembly.GetName(false).Version.ToString(),
+        //                           MessageType.CheckUser,
+        //                           messageInfo.UserID,
+        //                           0, 0,
+        //                           new MessageText() { Result = 2 });
+        //        //MessageManeger.MessageSend(info);
+        //    }
+        //    else
+        //    {
+        //        ErrorText = "账号密码错误";
+        //    }
 
-        }
+        //}
 
         #region Command
         private RelayCommand _loginCommand;
@@ -218,12 +217,12 @@ namespace JChat.ViewModel
                     ?? (_loginCommand = new RelayCommand(
                     () =>
                     {
-                        MessageInfo info = new MessageInfo(App.ResourceAssembly.GetName(false).Version.ToString(),
-                                        MessageType.CheckUser,
-                                        this.UserName,
-                                        0, 0,
-                                        new MessageText() { P = Password });
-                        MessageManeger.MessageSend(info);
+                        //MessageInfo info = new MessageInfo(App.ResourceAssembly.GetName(false).Version.ToString(),
+                        //                MessageType.CheckUser,
+                        //                this.UserName,
+                        //                0, 0,
+                        //                new MessageText() { P = Password });
+                        //MessageManeger.MessageSend(info);
                     }));
             }
         }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JService
+namespace JService.SocketService.AsyncSocketProtocolCore
 {
-    public class Class1
+    class ProtocolKey
     {
     }
 }

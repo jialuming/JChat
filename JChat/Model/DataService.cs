@@ -1,6 +1,5 @@
 ﻿using JEntity;
 using JEntity.WebService;
-using JService.Services;
 using System;
 using System.Text;
 using System.Web.Script.Serialization;
