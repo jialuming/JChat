@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Color x:Key="BaseButtonColor">#D58585</Color>
-    <Color x:Key="BaseSystemColor">#D58585</Color>
+    <Color x:Key="BaseSystemColor">#DA434E</Color>
     <SolidColorBrush x:Key="BaseButtonBrush" Color="{StaticResource BaseButtonColor}"/>
     <SolidColorBrush x:Key="BaseSystemBrush" Color="{StaticResource BaseSystemColor}"/>
     <SolidColorBrush x:Key="TransparentBrush" Color="#000000" Opacity="0"/>

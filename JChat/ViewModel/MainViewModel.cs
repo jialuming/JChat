@@ -1,4 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using JChat.Model;
 using JEntity;
 
@@ -77,6 +79,25 @@ namespace JChat.ViewModel
             _dataService = dataService;
         }
 
+        #region Commands
+        private RelayCommand closeSysCommand;
+
+        /// <summary>
+        /// Gets the CloseSysCommand.
+        /// </summary>
+        public RelayCommand CloseSysCommand
+        {
+            get
+            {
+                return closeSysCommand
+                    ?? (closeSysCommand = new RelayCommand(
+                    () =>
+                    {
+                        Messenger.Default.Send<object>("CloseSys");
+                    }));
+            }
+        }
+        #endregion
         ////public override void Cleanup()
         ////{
         ////    // Clean up if needed

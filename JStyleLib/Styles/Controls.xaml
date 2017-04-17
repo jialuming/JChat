@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:JStyleLib.Controls" Source="Controls.RadioButton.xaml">
+                    xmlns:local="clr-namespace:JStyleLib.Controls">
     <ResourceDictionary.MergedDictionaries>
         <!--<ResourceDictionary Source="pack://application:,,,/ETRIMP_ControlLibraryWPF;component/ResourceDic/Button/ButtonOne.xaml" />-->
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Themes/Colors.xaml"/>
@@ -19,6 +19,9 @@
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TabItem.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TextBlock.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TextBox.xaml"/>
+
+
+        <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Resources/iconfont.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <!--<Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />-->
+    <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
 </ResourceDictionary>

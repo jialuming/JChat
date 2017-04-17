@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using JChat.ViewModel;
+using GalaSoft.MvvmLight.Messaging;
+using System;
 
 namespace JChat.Views
 {
@@ -14,7 +16,15 @@ namespace JChat.Views
         public MainWindow()
         {
             InitializeComponent();
+            Messenger.Default.Register<object>("CloseSys", (obj)=> { this.Close(); });
+
+            this.Unloaded += (sender, e) => Messenger.Default.Unregister(this);
             Closing += (s, e) => ViewModelLocator.Cleanup();
+        }
+
+        private void CloseSys(object obj)
+        {
+            this.Close();
         }
     }
 }
