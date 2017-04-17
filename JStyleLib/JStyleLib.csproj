@@ -48,86 +48,90 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\Controls.ScrollViewer.xaml">
+    <Page Include="Styles\Controls.ScrollViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.DatePicker.xaml">
+    <Page Include="Styles\Controls.DatePicker.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.DataGrid.xaml">
+    <Page Include="Styles\Controls.DataGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.TextBlock.xaml">
+    <Page Include="Styles\Controls.TextBlock.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.TabItem.xaml">
+    <Page Include="Styles\Controls.TabItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.Button.xaml">
+    <Page Include="Styles\Controls.Button.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.ListView.xaml">
+    <Page Include="Styles\Controls.ListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.ListBox.xaml">
+    <Page Include="Styles\Controls.ListBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.CheckBox.xaml">
+    <Page Include="Styles\Controls.CheckBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.ComboBox.xaml">
+    <Page Include="Styles\Controls.ComboBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.Image.xaml">
+    <Page Include="Styles\Controls.Image.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.Calendar.xaml">
+    <Page Include="Styles\Controls.Calendar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.RadioButton.xaml">
+    <Page Include="Styles\Controls.RadioButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.TabControl.xaml">
+    <Page Include="Styles\Controls.TabControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.TextBox.xaml">
+    <Page Include="Styles\Controls.TextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
-    <Page Include="Controls\Controls.xaml">
+    <Page Include="Styles\Controls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Window.xaml">
+    <Page Include="Styles\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
