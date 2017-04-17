@@ -20,5 +20,5 @@
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TextBlock.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TextBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <Style BasedOn="{StaticResource DefaultButtonStyle}" TargetType="{x:Type Button}"/>
+    <!--<Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />-->
 </ResourceDictionary>
