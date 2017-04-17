@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using JService.SocketService.AsyncSocketCore;
+using JService.SocketService.AsyncSocketProtocolCore;
+using System;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JService.SocketService.Server
 {
@@ -14,8 +12,13 @@ namespace JService.SocketService.Server
         public SocketAsyncEventArgs RecevicveEventArgs { get; set; }
         //发送时使用的SAEA对象
         public SocketAsyncEventArgs SendEventArgs { get; set; }
+
+        public DynamicBufferManager ReceiveBuffer { get; set; }
+        public AsyncSendBufferManager SendBuffer { get; set; }
+
         public AsyncSocketInvokeElement AsyncSocketInvokeElement { get; set; }
         public DateTime ConnectDateTime { get; set; }
+
         private Socket socket;
         //当前链接的Socket对象
         public Socket Socket
@@ -29,6 +32,7 @@ namespace JService.SocketService.Server
             }
         }
 
+
         public AsyncSocketUserToken(int asyncReceviceBufferSize)
         {
             asyncReceviceBuffer = new byte[asyncReceviceBufferSize];
@@ -37,6 +41,9 @@ namespace JService.SocketService.Server
             RecevicveEventArgs.SetBuffer(asyncReceviceBuffer, 0, asyncReceviceBuffer.Length);
             SendEventArgs = new SocketAsyncEventArgs();
             SendEventArgs.UserToken = this;
+
+            ReceiveBuffer = new DynamicBufferManager(ProtocolConst.InitBufferSize);
+            SendBuffer = new AsyncSendBufferManager(ProtocolConst.InitBufferSize);
         }
     }
 }

@@ -46,14 +46,17 @@
     <Compile Include="SocketService\AsyncSocketProtocolCore\BaseSocketProtocol.cs" />
     <Compile Include="SocketService\AsyncSocketProtocolCore\ProtocolKey.cs" />
     <Compile Include="SocketService\BufferManager.cs" />
+    <Compile Include="SocketService\Client\AsyncSocketServer.cs" />
+    <Compile Include="SocketService\Server\AsyncSendBufferManager.cs" />
     <Compile Include="SocketService\Server\AsyncSocketInvokeElement.cs" />
     <Compile Include="SocketService\Server\AsyncSocketServer.cs" />
     <Compile Include="SocketService\Server\AsyncSocketUserToken.cs" />
     <Compile Include="SocketService\Server\AsyncSocketUserTokenList.cs" />
     <Compile Include="SocketService\Server\AsyncUserToken.cs" />
     <Compile Include="SocketService\Server\AsyncSocketAsyncEventArgsPool.cs" />
-    <Compile Include="SocketService\Server\IncomingDataParser.cs" />
-    <Compile Include="SocketService\Server\OutgoingDataAssembler.cs" />
+    <Compile Include="SocketService\AsyncSocketCore\DynamicBufferManager.cs" />
+    <Compile Include="SocketService\AsyncSocketCore\IncomingDataParser.cs" />
+    <Compile Include="SocketService\AsyncSocketCore\OutgoingDataAssembler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JEntity\JEntity.csproj">
@@ -61,9 +64,7 @@
       <Name>JEntity</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SocketService\Client\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

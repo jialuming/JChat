@@ -117,6 +117,20 @@ namespace JService.SocketService.Server
             StartAccept(acceptEventArgs);
         }
 
+        public bool SendAsyncEvent(Socket connectSocket, SocketAsyncEventArgs sendEventArgs, byte[] buffer, int offset, int count)
+        {
+            if (connectSocket == null)
+                return false;
+            sendEventArgs.SetBuffer(buffer, offset, count);
+            bool willRaiseEvent = connectSocket.SendAsync(sendEventArgs);
+            if (!willRaiseEvent)
+            {
+                return ProcessSend(sendEventArgs);
+            }
+            else
+                return true;
+        }
+
         // This method is called whenever a receive or send operation is completed on a socket 
         //
         // <param name="e">SocketAsyncEventArg associated with the completed receive operation</param>
@@ -170,10 +184,13 @@ namespace JService.SocketService.Server
                             CloseClientSocket(userToken);
                         }
                     }
-                    bool willRaiseEvent = userToken.Socket.ReceiveAsync(userToken.RecevicveEventArgs);
-                    if (!willRaiseEvent)
+                    else
                     {
-                        ProcessReceive(userToken.RecevicveEventArgs);
+                        bool willRaiseEvent = userToken.Socket.ReceiveAsync(userToken.RecevicveEventArgs);
+                        if (!willRaiseEvent)
+                        {
+                            ProcessReceive(userToken.RecevicveEventArgs);
+                        }
                     }
                 }
             }
@@ -184,7 +201,7 @@ namespace JService.SocketService.Server
         }
         private void BuildingSocketInvokeElement(AsyncSocketUserToken userToken)
         {
-            userToken.AsyncSocketInvokeElement = new AsyncSocketInvokeElement();
+            userToken.AsyncSocketInvokeElement = new AsyncSocketInvokeElement(this, userToken);
         }
 
 
