@@ -20,7 +20,7 @@
                                     <ColumnDefinition x:Name="ContentWidth" Width="*"/>
                                     <ColumnDefinition x:Name="ButtonWidth" Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Controls:PathPresenter Fill="{DynamicResource BaseSystemBrush}" x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                <Controls:PathPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
                                 <ToggleButton x:Name="TiButton" Grid.Column="1" Margin="1 0" Visibility="Hidden">
                                     <ToggleButton.Style>
                                         <Style TargetType="ToggleButton">
