@@ -52,6 +52,81 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Styles\Controls - 复制.Button.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.CheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.DatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.Image.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.ListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.ListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.RadioButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.ScrollViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.TabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.TextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Controls - 复制.TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\Controls.ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

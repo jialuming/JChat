@@ -22,6 +22,7 @@
 
 
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Resources/iconfont.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary.MergedDictionaries> 
     <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
+    <Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
 </ResourceDictionary>

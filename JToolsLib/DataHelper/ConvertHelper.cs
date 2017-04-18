@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace JToolsLib
+namespace JToolsLib.DataHelper
 {
     /// <summary>
     /// 类型转换帮助类

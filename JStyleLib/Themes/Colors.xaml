@@ -5,4 +5,6 @@
     <SolidColorBrush x:Key="BaseButtonBrush" Color="{StaticResource BaseButtonColor}"/>
     <SolidColorBrush x:Key="BaseSystemBrush" Color="{StaticResource BaseSystemColor}"/>
     <SolidColorBrush x:Key="TransparentBrush" Color="#000000" Opacity="0"/>
+
+    <SolidColorBrush x:Key="SysTabBackGroundBrush" Color="#DA434E" Opacity="0"/>
 </ResourceDictionary>

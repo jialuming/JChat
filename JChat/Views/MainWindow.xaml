@@ -47,7 +47,12 @@
         <Border Grid.Row="2">
             <TextBox Style="{DynamicResource SearchTextBoxStyle}"/>
         </Border>
-        <Border Grid.Row="3"/>
+        <Border Grid.Row="3">
+            <TabControl Style="{DynamicResource SysMainTabControlStyle}">
+                <TabItem Header="123456789" Style="{DynamicResource SysMainTabItemStyle}"/>
+                <TabItem Header="987654321" Style="{DynamicResource SysMainTabItemStyle}"/>
+            </TabControl>
+        </Border>
         <Border Grid.Row="4">
             <ItemsControl ItemsSource="{Binding}"/>
         </Border>
