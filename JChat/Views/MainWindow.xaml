@@ -49,8 +49,11 @@
         </Border>
         <Border Grid.Row="3">
             <TabControl Style="{DynamicResource SysMainTabControlStyle}">
-                <TabItem Header="123456789" Style="{DynamicResource SysMainTabItemStyle}"/>
+                <TabItem Header="{DynamicResource Sys_Contact_Ti}" Style="{DynamicResource SysMainTabItemStyle}">
+                    <Border Background="Yellow"/>
+                </TabItem>
                 <TabItem Header="987654321" Style="{DynamicResource SysMainTabItemStyle}"/>
+                <TabItem Header="000000000" Style="{DynamicResource SysMainTabItemStyle}"/>
             </TabControl>
         </Border>
         <Border Grid.Row="4">

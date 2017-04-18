@@ -146,8 +146,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conotrls\Helper\TabItemHelper.cs" />
     <Compile Include="Conotrls\Helper\TextBoxHelper.cs" />
     <Compile Include="Conotrls\PathControl.cs" />
+    <Compile Include="Conotrls\PathPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

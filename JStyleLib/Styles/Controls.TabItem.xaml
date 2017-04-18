@@ -14,43 +14,46 @@
                 <ControlTemplate TargetType="{x:Type TabItem}">
                     <Grid x:Name="ROOT" SnapsToDevicePixels="true">
                         <Border x:Name="BG" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
-                        <Grid x:Name="GContent" Background="#00000000">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition x:Name="ContentWidth" Width="*"/>
-                                <ColumnDefinition x:Name="ButtonWidth" Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <ContentPresenter x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                            <ToggleButton x:Name="TiButton" Grid.Column="1" Visibility="Hidden">
-                                <ToggleButton.Style>
-                                    <Style TargetType="ToggleButton">
-                                        <Setter Property="Background" Value="Transparent"/>
-                                        <Setter Property="BorderThickness" Value="0"/>
-                                        <Setter Property="BorderBrush" Value="Transparent"/>
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                    <Grid x:Name="Root" SnapsToDevicePixels="true">
-                                                        <Border x:Name="BG" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                                                        <Controls:PathControl Content="{DynamicResource Button_Pulldown_Ti}"/>
-                                                    </Grid>
-                                                    <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="true">
-                                                        </Trigger>
-                                                        <Trigger Property="IsPressed" Value="true">
-                                                        </Trigger>
-                                                        <Trigger Property="IsEnabled" Value="false">
-                                                        </Trigger>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </ToggleButton.Style>
-                            </ToggleButton>
-                            <Popup x:Name="DropDown" PlacementTarget="{Binding ElementName=TiButton}">
-                                <ItemsControl Width="20" Height="20"/>
-                            </Popup>
-                        </Grid>
+                        <Border Padding="{TemplateBinding Padding}">
+                            <Grid x:Name="GContent" Background="#00000000">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="ContentWidth" Width="*"/>
+                                    <ColumnDefinition x:Name="ButtonWidth" Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Controls:PathPresenter Fill="{DynamicResource BaseSystemBrush}" x:Name="Content" ContentSource="Header" HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                <ToggleButton x:Name="TiButton" Grid.Column="1" Margin="1 0" Visibility="Hidden">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="ToggleButton">
+                                            <Setter Property="Opacity" Value="0.4"/>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Grid x:Name="Root" SnapsToDevicePixels="true">
+                                                            <Border x:Name="BG" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                                                            <Controls:PathControl x:Name="BtnContent" Content="{DynamicResource Button_Pulldown_Ti}"/>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="true">
+                                                                <Setter Property="Opacity" Value="0.6"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" Value="true">
+                                                                <Setter Property="Opacity" Value="0.8"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                                <Popup x:Name="DropDown" PlacementTarget="{Binding ElementName=TiButton}">
+                                    <ItemsControl Width="20" Height="20"/>
+                                </Popup>
+                            </Grid>
+                        </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
@@ -64,18 +67,20 @@
                             <Setter Property="IsOpen" TargetName="DropDown" Value="true"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" TargetName="BG" Value="Transparent"/>
+                            <!--<Setter Property="Background" TargetName="BG" Value="Transparent"/>-->
                         </Trigger>
                         <Trigger Property="IsSelected" Value="true">
-                            <Setter Property="Panel.ZIndex" Value="1"/>
-                            <Setter Property="Background" TargetName="BG" Value="Transparent"/>
+                            <!--<Setter Property="Panel.ZIndex" Value="1"/>-->
+                            <Setter TargetName="Content" Property="Fill" Value="Red"/>
+                            <Setter TargetName="Content" Property="Stroke" Value="Red"/>
+                            <!--<Setter Property="Background" TargetName="BG" Value="Transparent"/>-->
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="false"/>
                                 <Condition Property="IsMouseOver" Value="true"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="BorderBrush" TargetName="BG" Value="Transparent"/>
+                            <!--<Setter Property="BorderBrush" TargetName="BG" Value="Transparent"/>-->
                         </MultiTrigger>
                         <Trigger Property="TabStripPlacement" Value="Bottom">
                             <Setter Property="BorderThickness" TargetName="BG" Value="1,0,1,1"/>
@@ -91,37 +96,37 @@
                                 <Condition Property="IsSelected" Value="true"/>
                                 <Condition Property="TabStripPlacement" Value="Top"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Margin" Value="-2,-2,-2,-1"/>
-                            <Setter Property="Margin" TargetName="Content" Value="0,0,0,1"/>
+                            <!--<Setter Property="Margin" Value="-2,-2,-2,-1"/>
+                            <Setter Property="Margin" TargetName="Content" Value="0,0,0,1"/>-->
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="true"/>
                                 <Condition Property="TabStripPlacement" Value="Bottom"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Margin" Value="-2,-1,-2,-2"/>
-                            <Setter Property="Margin" TargetName="Content" Value="0,1,0,0"/>
+                            <!--<Setter Property="Margin" Value="-2,-1,-2,-2"/>
+                            <Setter Property="Margin" TargetName="Content" Value="0,1,0,0"/>-->
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="true"/>
                                 <Condition Property="TabStripPlacement" Value="Left"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Margin" Value="-2,-2,-1,-2"/>
-                            <Setter Property="Margin" TargetName="Content" Value="0,0,1,0"/>
+                            <!--<Setter Property="Margin" Value="-2,-2,-1,-2"/>
+                            <Setter Property="Margin" TargetName="Content" Value="0,0,1,0"/>-->
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="true"/>
                                 <Condition Property="TabStripPlacement" Value="Right"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Margin" Value="-1,-2,-2,-2"/>
-                            <Setter Property="Margin" TargetName="Content" Value="1,0,0,0"/>
+                            <!--<Setter Property="Margin" Value="-1,-2,-2,-2"/>
+                            <Setter Property="Margin" TargetName="Content" Value="1,0,0,0"/>-->
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" TargetName="BG" Value="{StaticResource TabItemDisabledBackground}"/>
+                            <!--<Setter Property="Background" TargetName="BG" Value="{StaticResource TabItemDisabledBackground}"/>
                             <Setter Property="BorderBrush" TargetName="BG" Value="{StaticResource TabItemDisabledBorderBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>-->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
