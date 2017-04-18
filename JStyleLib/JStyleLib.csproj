@@ -132,6 +132,11 @@
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
+    <Page Include="Styles\Controls.TreeViewItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <DependentUpon>Controls.xaml</DependentUpon>
+    </Page>
     <Page Include="Styles\Controls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,17 +149,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UserCtrlFriendItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conotrls\Helper\TabItemHelper.cs" />
     <Compile Include="Conotrls\Helper\TextBoxHelper.cs" />
     <Compile Include="Conotrls\PathControl.cs" />
     <Compile Include="Conotrls\PathPresenter.cs" />
+    <Compile Include="Conotrls\Helper\TreeItemHelper.cs" />
+    <Compile Include="Converters\BackgroundToForegroundConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UserControls\UserCtrlFriendItem.xaml.cs">
+      <DependentUpon>UserCtrlFriendItem.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JEntity\JEntity.csproj">
+      <Project>{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}</Project>
+      <Name>JEntity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JToolsLib\JToolsLib.csproj">
       <Project>{9d2d7bee-93b8-4b91-acaf-cece7a135267}</Project>
       <Name>JToolsLib</Name>

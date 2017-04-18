@@ -19,10 +19,11 @@
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TabItem.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TextBlock.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TreeViewItem.xaml"/>
 
 
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Resources/iconfont.xaml"/>
     </ResourceDictionary.MergedDictionaries> 
     <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
-    <Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
+    <!--<Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}" />-->
 </ResourceDictionary>

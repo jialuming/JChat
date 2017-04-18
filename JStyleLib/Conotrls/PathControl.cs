@@ -13,7 +13,10 @@ namespace JStyleLib.Conotrls
 {
     public class PathControl : ContentControl
     {
-        private Path path = null;
+        List<Path> pathList = new List<Path>();
+        private Brush fillPool;
+        private Brush strokePool;
+        private double? strokeThicknessPool;
 
         public Brush Fill
         {
@@ -45,31 +48,91 @@ namespace JStyleLib.Conotrls
         public static readonly DependencyProperty StrokeThicknessProperty =
             DependencyProperty.Register("StrokeThickness", typeof(double), typeof(PathControl), new PropertyMetadata((double)1, StrokeThicknessChanged));
 
-        protected override void OnContentChanged(object oldContent, object newContent)
-        {
-            base.OnContentChanged(oldContent, newContent);
-            Path path = ControlHelper.FindVisualChild<Path>(this);
-            if (path == null)
-                return;
-            this.path = path;
-        }
 
         private static void FillChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PathControl pc = d as PathControl;
-            pc.path.Fill = e.NewValue as Brush;
+
+            if (pc.pathList == null || pc.pathList.Count == 0)
+            {
+                DependencyObject deo = pc.Content as DependencyObject;
+                if (deo != null)
+                    pc.pathList = ControlHelper.GetChildObjects<Path>(deo);
+            }
+            if (pc.pathList != null && pc.pathList.Count > 0)
+            {
+                if (e.NewValue == null)
+                {
+                    foreach (Path path in pc.pathList)
+                    {
+                        path.Fill = pc.fillPool;
+                    }
+                }
+                else
+                {
+                    foreach (Path path in pc.pathList)
+                    {
+                        pc.fillPool = pc.fillPool ?? path.Fill;
+                        path.Fill = e.NewValue as Brush;
+                    }
+                }
+            }
         }
 
         private static void StrokeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PathControl pc = d as PathControl;
-            pc.path.Stroke = e.NewValue as Brush;
+            if (pc.pathList == null || pc.pathList.Count == 0)
+            {
+                DependencyObject deo = pc.Content as DependencyObject;
+                if (deo != null)
+                    pc.pathList = ControlHelper.GetChildObjects<Path>(deo);
+            }
+            if (pc.pathList != null && pc.pathList.Count > 0)
+            {
+                if (e.NewValue == null)
+                {
+                    foreach (Path path in pc.pathList)
+                    {
+                        path.Stroke = pc.strokePool;
+                    }
+                }
+                else
+                {
+                    foreach (Path path in pc.pathList)
+                    {
+                        pc.strokePool = pc.strokePool ?? path.Stroke;
+                        path.Stroke = e.NewValue as Brush;
+                    }
+                }
+            }
         }
 
         private static void StrokeThicknessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PathControl pc = d as PathControl;
-            pc.path.StrokeThickness = (double)e.NewValue;
+            if (pc.pathList == null || pc.pathList.Count == 0)
+            {
+                DependencyObject deo = pc.Content as DependencyObject;
+                if (deo != null)
+                    pc.pathList = ControlHelper.GetChildObjects<Path>(deo);
+            }
+            if (pc.pathList != null && pc.pathList.Count > 0)
+            {
+                foreach (Path path in pc.pathList)
+                {
+                    pc.strokeThicknessPool = pc.strokeThicknessPool ?? path.StrokeThickness;
+                    path.StrokeThickness = (double)e.NewValue;
+                }
+            }
         }
+
+        protected override void OnContentChanged(object oldContent, object newContent)
+        {
+            base.OnContentChanged(oldContent, newContent);
+            if (newContent != null&& newContent is DependencyObject)
+                pathList = ControlHelper.GetChildObjects<Path>((DependencyObject)newContent);
+        }
+
     }
 }

@@ -16,6 +16,7 @@ namespace JStyleLib.Conotrls
         List<Path> pathList = new List<Path>();
         private Brush fillPool;
         private Brush strokePool;
+        private double? strokeThicknessPool;
 
         public Brush Fill
         {
@@ -89,12 +90,11 @@ namespace JStyleLib.Conotrls
             }
             if (pc.pathList != null && pc.pathList.Count > 0)
             {
-
                 if (e.NewValue == null)
                 {
                     foreach (Path path in pc.pathList)
                     {
-                        path.Fill = pc.strokePool;
+                        path.Stroke = pc.strokePool;
                     }
                 }
                 else
@@ -108,7 +108,6 @@ namespace JStyleLib.Conotrls
             }
         }
 
-
         private static void StrokeThicknessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             PathPresenter pc = d as PathPresenter;
@@ -119,10 +118,13 @@ namespace JStyleLib.Conotrls
                     pc.pathList = ControlHelper.GetChildObjects<Path>(deo);
             }
             if (pc.pathList != null && pc.pathList.Count > 0)
+            {
                 foreach (Path path in pc.pathList)
                 {
+                    pc.strokeThicknessPool = pc.strokeThicknessPool ?? path.StrokeThickness;
                     path.StrokeThickness = (double)e.NewValue;
                 }
+            }
         }
     }
 }

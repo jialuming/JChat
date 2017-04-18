@@ -3,20 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Helper="clr-namespace:JStyleLib.Conotrls.Helper;assembly=JStyleLib"
+        xmlns:Helper="clr-namespace:JStyleLib.Conotrls.Helper;assembly=JStyleLib"
+        xmlns:Uc="clr-namespace:JStyleLib.UserControls;assembly=JStyleLib"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="JChat.Views.MainWindow"
         mc:Ignorable="d ignore"
-        Height="300"
+        Height="800"
         Width="300"
-        Title="MVVM Light Application" Background="{DynamicResource BaseSystemBrush}"
+        Title="JChat" Background="Transparent" MinWidth="290" MinHeight="530" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True"
         >
     <Window.Resources>
-    </Window.Resources>
+</Window.Resources>
     <Window.DataContext>
         <Binding Path="Main" Source="{StaticResource Locator}"/>
     </Window.DataContext>
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Background="{DynamicResource BaseSystemBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" x:Name="TitleBarHeight"/>
             <RowDefinition Height="Auto" x:Name="UserInfoHeight"/>
@@ -49,15 +50,30 @@
         </Border>
         <Border Grid.Row="3">
             <TabControl Style="{DynamicResource SysMainTabControlStyle}">
-                <TabItem Header="{DynamicResource Sys_Contact_Ti}" Style="{DynamicResource SysMainTabItemStyle}">
-                    <Border Background="Yellow"/>
+                <TabItem Header="{DynamicResource Sys_Contact_Ti}" Helper:TabItemHelper.MenuItemsSource="{Binding}" Style="{DynamicResource SysMainTabItemStyle}">
+                    <TreeView Background="Transparent">
+                        <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
+                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NickName"/>
+                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="233" Signature="12312312312321312" NameDisplayMode="Remarks"/>
+                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NameAndNickName"/>
+                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="" Signature="12312312312321312" NameDisplayMode="NameAndNickName"/>
+                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="" Signature="12312312312321312" NameDisplayMode="Remarks"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
+                            <TreeViewItem Header="好友1"/>
+                        </TreeViewItem>
+                    </TreeView>
                 </TabItem>
-                <TabItem Header="987654321" Style="{DynamicResource SysMainTabItemStyle}"/>
-                <TabItem Header="000000000" Style="{DynamicResource SysMainTabItemStyle}"/>
+                <TabItem Header="{DynamicResource Sys_Contact2_Ti}" Style="{DynamicResource SysMainTabItemStyle}">
+                    <ListView Background="Transparent"/>
+                </TabItem>
+                <TabItem Header="{DynamicResource Sys_session_Ti}" Style="{DynamicResource SysMainTabItemStyle}">
+                    <ListView Background="Transparent"/>
+                </TabItem>
             </TabControl>
         </Border>
-        <Border Grid.Row="4">
-            <ItemsControl ItemsSource="{Binding}"/>
+        <Border Grid.Row="4" Background="{DynamicResource SysTabBackGroundMarkBrush}" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource BaseBorderBrush}">
+            <ItemsControl Height="40" ItemsSource="{Binding}"/>
         </Border>
     </Grid>
 </Window>
