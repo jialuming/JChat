@@ -49,6 +49,17 @@
         <Setter Property="MinHeight" Value="300"/>
         <Setter Property="MinWidth" Value="300"/>
         <Setter Property="ShowInTaskbar" Value="False"/>
+        <Setter Property="IconTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Image Margin="8 8 0 0" Source="{Binding}" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center">
+                        <Image.Effect>
+                            <DropShadowEffect RenderingBias="Performance" ShadowDepth="0" Color="#33E4E4E4" BlurRadius="1"/>
+                        </Image.Effect>
+                    </Image>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Behavior:Behaviors.BehaviorColection">
             <Setter.Value>
                 <Behavior:BehaviorCollection>

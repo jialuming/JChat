@@ -44,7 +44,7 @@ namespace JStyleLib.Conotrls
         Border contentBg;
 
         public static readonly DependencyProperty TitleBarHeightProperty =
-            DependencyProperty.Register("TitleBarHeight", typeof(GridLength), typeof(JWindow), new PropertyMetadata(GridLength.Auto));
+            DependencyProperty.Register("TitleBarHeight", typeof(GridLength), typeof(JWindow), new PropertyMetadata(new GridLength(30)));
         public static readonly DependencyProperty TitleBackgroundProperty =
             DependencyProperty.Register("TitleBackground", typeof(Brush), typeof(JWindow), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.None));
         public static readonly DependencyProperty TitleBarVisibilityProperty =

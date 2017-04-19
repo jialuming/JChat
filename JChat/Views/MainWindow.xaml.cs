@@ -18,22 +18,20 @@ namespace JChat.Views
         public MainWindow()
         {
             InitializeComponent();
-            Messenger.Default.Register<object>(this, "CloseSys", (obj) => 
-            {
-                this.Close();
-            });
-            Messenger.Default.Register<object>(this, "Show", (obj) => 
-            {
-                this.Show();
-            });
-            
+            Messenger.Default.Register<object>(this, "CloseSys", WindowClose);
+            Messenger.Default.Register<object>(this, "Show", WindowShow);
+
             this.Unloaded += (sender, e) => Messenger.Default.Unregister(this);
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
 
-        private void CloseSys(object obj)
+        private void WindowClose(object obj)
         {
             this.Close();
+        }
+        private void WindowShow(object obj)
+        {
+            this.Show();
         }
     }
 }

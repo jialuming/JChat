@@ -5,9 +5,9 @@
         xmlns:Control="clr-namespace:JStyleLib.Conotrls;assembly=JStyleLib"
         xmlns:TaskBar="http://www.hardcodet.net/taskbar"
         xmlns:Uc="clr-namespace:JStyleLib.UserControls;assembly=JStyleLib"
-        Height="800" TitleBarVisibility="Visible"
+        Height="800" TitleBarVisibility="Visible" Icon="/JChat;component/Img/TaskBarIco.ico"
         Width="300" Style="{DynamicResource JWindowStyle}" TitleBackground="{DynamicResource BaseSystemBrush}" Background="{DynamicResource BaseSystemBrush}"
-        Title="JChat" MinWidth="290" MinHeight="530">
+        Title="JChat" MinWidth="290" MinHeight="530" Topmost="True">
     <Window.DataContext>
         <Binding Path="Main" Source="{StaticResource Locator}"/>
     </Window.DataContext>
@@ -18,7 +18,7 @@
             <RowDefinition Height="*" x:Name="WorkSpaceHeight"/>
             <RowDefinition Height="Auto" x:Name="ExtenceHeight"/>
         </Grid.RowDefinitions>
-        <TaskBar:TaskbarIcon LeftClickCommand="{Binding TaskBarLeftClickCommand}"/>
+        <TaskBar:TaskbarIcon x:Name="TaskBar" IconSource="/JChat;component/Img/TaskBarIco.ico" LeftClickCommand="{Binding TaskBarLeftClickCommand}" RenderOptions.BitmapScalingMode="HighQuality"/>
 
         <!--<Button x:Name="SkinBtn" Content="{DynamicResource Sys_Skin_Btn}" Style="{DynamicResource SysTitleButtonStyle}"/>-->
         <Border Grid.Row="0">
@@ -27,7 +27,7 @@
                 <StackPanel>
                     <TextBlock Text="{Binding TUser.Nickame}"/>
                     <TextBlock Text="{Binding TUSer.Signature}"/>
-                    <ItemsControl ItemsSource="{Binding ''}"/>
+                    <ItemsControl ItemsSource="{Binding }"/>
                 </StackPanel>
             </DockPanel>
         </Border>
@@ -37,7 +37,7 @@
         <Border Grid.Row="2">
             <TabControl Style="{DynamicResource SysMainTabControlStyle}">
                 <TabItem Header="{DynamicResource Sys_Contact_Ti}" Helper:TabItemHelper.MenuItemsSource="{Binding}" Style="{DynamicResource SysMainTabItemStyle}">
-                    <TreeView Background="Transparent">
+                    <TreeView Background="Transparent" BorderThickness="0">
                         <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
                             <Uc:UserCtrlFriendItem NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NickName"/>
                             <Uc:UserCtrlFriendItem NickName="小子" Remarks="233" Signature="12312312312321312" NameDisplayMode="Remarks"/>
@@ -51,10 +51,10 @@
                     </TreeView>
                 </TabItem>
                 <TabItem Header="{DynamicResource Sys_Contact2_Ti}" Style="{DynamicResource SysMainTabItemStyle}">
-                    <ListView Background="Transparent"/>
+                    <ListView Background="Transparent" BorderThickness="0"/>
                 </TabItem>
                 <TabItem Header="{DynamicResource Sys_session_Ti}" Style="{DynamicResource SysMainTabItemStyle}">
-                    <ListView Background="Transparent"/>
+                    <ListView Background="Transparent" BorderThickness="0"/>
                 </TabItem>
             </TabControl>
         </Border>
