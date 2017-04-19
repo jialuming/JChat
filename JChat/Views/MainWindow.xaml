@@ -1,41 +1,27 @@
-﻿<Window
+﻿<Control:JWindow x:Class="JChat.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Helper="clr-namespace:JStyleLib.Conotrls.Helper;assembly=JStyleLib"
+        xmlns:Control="clr-namespace:JStyleLib.Conotrls;assembly=JStyleLib"
+        xmlns:TaskBar="http://www.hardcodet.net/taskbar"
         xmlns:Uc="clr-namespace:JStyleLib.UserControls;assembly=JStyleLib"
-        xmlns:ignore="http://www.galasoft.ch/ignore"
-        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="JChat.Views.MainWindow"
-        mc:Ignorable="d ignore"
-        Height="800"
-        Width="300"
-        Title="JChat" Background="Transparent" MinWidth="290" MinHeight="530" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True"
-        >
-    <Window.Resources>
-</Window.Resources>
+        Height="800" TitleBarVisibility="Visible"
+        Width="300" Style="{DynamicResource JWindowStyle}" TitleBackground="{DynamicResource BaseSystemBrush}" Background="{DynamicResource BaseSystemBrush}"
+        Title="JChat" MinWidth="290" MinHeight="530">
     <Window.DataContext>
         <Binding Path="Main" Source="{StaticResource Locator}"/>
     </Window.DataContext>
-    <Grid x:Name="LayoutRoot" Background="{DynamicResource BaseSystemBrush}">
+    <Grid x:Name="LayoutRoot" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" x:Name="TitleBarHeight"/>
             <RowDefinition Height="Auto" x:Name="UserInfoHeight"/>
             <RowDefinition Height="Auto" x:Name="SearchBarHeight"/>
             <RowDefinition Height="*" x:Name="WorkSpaceHeight"/>
             <RowDefinition Height="Auto" x:Name="ExtenceHeight"/>
         </Grid.RowDefinitions>
+        <TaskBar:TaskbarIcon LeftClickCommand="{Binding TaskBarLeftClickCommand}"/>
+
+        <!--<Button x:Name="SkinBtn" Content="{DynamicResource Sys_Skin_Btn}" Style="{DynamicResource SysTitleButtonStyle}"/>-->
         <Border Grid.Row="0">
-            <Grid>
-                <Image/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="SkinBtn" Content="{DynamicResource Sys_SkinPath_Btn}" Style="{DynamicResource SysTitleButtonStyle}"/>
-                    <Button x:Name="MinBtn" Content="{DynamicResource Sys_MinPath_Btn}" Style="{DynamicResource SysTitleButtonStyle}"/>
-                    <Button x:Name="CloseBtn" Command="{Binding CloseSysCommand}" Content="{DynamicResource Sys_Close_Btn}" Style="{DynamicResource SysTitleButtonStyle}"/>
-                </StackPanel>
-            </Grid>
-        </Border>
-        <Border Grid.Row="1">
             <DockPanel>
                 <Image Source="{Binding TUSer.IcoPath}"/>
                 <StackPanel>
@@ -45,10 +31,10 @@
                 </StackPanel>
             </DockPanel>
         </Border>
-        <Border Grid.Row="2">
+        <Border Grid.Row="1">
             <TextBox Style="{DynamicResource SearchTextBoxStyle}"/>
         </Border>
-        <Border Grid.Row="3">
+        <Border Grid.Row="2">
             <TabControl Style="{DynamicResource SysMainTabControlStyle}">
                 <TabItem Header="{DynamicResource Sys_Contact_Ti}" Helper:TabItemHelper.MenuItemsSource="{Binding}" Style="{DynamicResource SysMainTabItemStyle}">
                     <TreeView Background="Transparent">
@@ -72,8 +58,8 @@
                 </TabItem>
             </TabControl>
         </Border>
-        <Border Grid.Row="4" Background="{DynamicResource SysTabBackGroundMarkBrush}" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource BaseBorderBrush}">
+        <Border Grid.Row="3" Background="{DynamicResource SysTabBackGroundMarkBrush}" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource BaseBorderBrush}">
             <ItemsControl Height="40" ItemsSource="{Binding}"/>
         </Border>
     </Grid>
-</Window>
+</Control:JWindow>

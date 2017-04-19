@@ -97,6 +97,42 @@ namespace JChat.ViewModel
                     }));
             }
         }
+
+        private RelayCommand _taskBarDoubleClickCommand;
+
+        /// <summary>
+        /// Gets the CloseSysCommand.
+        /// </summary>
+        public RelayCommand TaskBarDoubleClickCommand
+        {
+            get
+            {
+                return _taskBarDoubleClickCommand
+                    ?? (_taskBarDoubleClickCommand = new RelayCommand(
+                    () =>
+                    {
+                        Messenger.Default.Send<object>("", "Show");
+                    }));
+            }
+        }
+
+        private RelayCommand _taskBarLeftClickCommand;
+
+        /// <summary>
+        /// Gets the CloseSysCommand.
+        /// </summary>
+        public RelayCommand TaskBarLeftClickCommand
+        {
+            get
+            {
+                return _taskBarLeftClickCommand
+                    ?? (_taskBarLeftClickCommand = new RelayCommand(
+                    () =>
+                    {
+                        Messenger.Default.Send<object>(null, "Show");
+                    }));
+            }
+        }
         #endregion
         ////public override void Cleanup()
         ////{

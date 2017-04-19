@@ -165,6 +165,7 @@
     <Compile Include="Conotrls\PathControl.cs" />
     <Compile Include="Conotrls\PathPresenter.cs" />
     <Compile Include="Conotrls\Helper\TreeItemHelper.cs" />
+    <Compile Include="Conotrls\WindowCommandsControl.cs" />
     <Compile Include="Converters\BackgroundToForegroundConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

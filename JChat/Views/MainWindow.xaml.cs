@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using GalaSoft.MvvmLight.Messaging;
 using JChat.ViewModel;
-using GalaSoft.MvvmLight.Messaging;
-using System;
+using JStyleLib.Conotrls;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -10,7 +10,7 @@ namespace JChat.Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : JWindow
     {
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -18,8 +18,15 @@ namespace JChat.Views
         public MainWindow()
         {
             InitializeComponent();
-            Messenger.Default.Register<object>("CloseSys", (obj) => { this.Close(); });
-
+            Messenger.Default.Register<object>(this, "CloseSys", (obj) => 
+            {
+                this.Close();
+            });
+            Messenger.Default.Register<object>(this, "Show", (obj) => 
+            {
+                this.Show();
+            });
+            
             this.Unloaded += (sender, e) => Messenger.Default.Unregister(this);
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
@@ -27,22 +34,6 @@ namespace JChat.Views
         private void CloseSys(object obj)
         {
             this.Close();
-        }
-
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            this.DragMove();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            LayoutRoot.Clip = new RectangleGeometry() { RadiusX = 3, RadiusY = 3, Rect = new Rect(new Point(0, 0), new Size(this.ActualWidth, this.ActualHeight)) };
-        }
-        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
-        {
-            base.OnRenderSizeChanged(sizeInfo);
-            LayoutRoot.Clip = new RectangleGeometry() { RadiusX = 3, RadiusY = 3, Rect = new Rect(new Point(0, 0), new Size(this.ActualWidth, this.ActualHeight)) };
         }
     }
 }

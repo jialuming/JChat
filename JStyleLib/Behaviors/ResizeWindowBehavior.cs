@@ -26,7 +26,7 @@ namespace JStyleLib.Behaviors
         protected override void OnAttached()
         {
             base.OnAttached();
-            
+
             AssociatedObject.SourceInitialized += AssociatedObject_SourceInitialized;
             AssociatedObject.PreviewMouseDown += AssociatedObject_PreviewMouseDown;
             AssociatedObject.PreviewMouseMove += AssociatedObject_PreviewMouseMove;
@@ -101,43 +101,43 @@ namespace JStyleLib.Behaviors
                 AssociatedObject.Cursor = Cursors.SizeNWSE;
                 ResizeWindow(ResizeDirection.TopLeft);
             }
-            if (x >= w - RelativeClip & y <= RelativeClip) //right top
+            else if (x >= w - RelativeClip & y <= RelativeClip) //right top
             {
                 AssociatedObject.Cursor = Cursors.SizeNESW;
                 ResizeWindow(ResizeDirection.TopRight);
             }
 
-            if (x >= w - RelativeClip & y >= h - RelativeClip) //bottom right
+            else if (x >= w - RelativeClip & y >= h - RelativeClip) //bottom right
             {
                 AssociatedObject.Cursor = Cursors.SizeNWSE;
                 ResizeWindow(ResizeDirection.BottomRight);
             }
 
-            if (x <= RelativeClip & y >= h - RelativeClip)  // bottom left
+            else if (x <= RelativeClip & y >= h - RelativeClip)  // bottom left
             {
                 AssociatedObject.Cursor = Cursors.SizeNESW;
                 ResizeWindow(ResizeDirection.BottomLeft);
             }
 
-            if ((x >= RelativeClip & x <= w - RelativeClip) & y <= RelativeClip) //top
+            else if ((x >= RelativeClip & x <= w - RelativeClip) & y <= RelativeClip) //top
             {
                 AssociatedObject.Cursor = Cursors.SizeNS;
                 ResizeWindow(ResizeDirection.Top);
             }
 
-            if (x >= w - RelativeClip & (y >= RelativeClip & y <= h - RelativeClip)) //right
+            else if (x >= w - RelativeClip & (y >= RelativeClip & y <= h - RelativeClip)) //right
             {
                 AssociatedObject.Cursor = Cursors.SizeWE;
                 ResizeWindow(ResizeDirection.Right);
             }
 
-            if ((x >= RelativeClip & x <= w - RelativeClip) & y > h - RelativeClip) //bottom
+            else if ((x >= RelativeClip & x <= w - RelativeClip) & y > h - RelativeClip) //bottom
             {
                 AssociatedObject.Cursor = Cursors.SizeNS;
                 ResizeWindow(ResizeDirection.Bottom);
             }
 
-            if (x <= RelativeClip & (y <= h - RelativeClip & y >= RelativeClip)) //left
+            else if (x <= RelativeClip & (y <= h - RelativeClip & y >= RelativeClip)) //left
             {
                 AssociatedObject.Cursor = Cursors.SizeWE;
                 ResizeWindow(ResizeDirection.Left);
