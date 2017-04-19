@@ -3,6 +3,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Color x:Key="BaseButtonColor">#D58585</Color>
     <Color x:Key="BaseSystemColor">#DA434E</Color>
+    <Color x:Key="BaseForegroundColor">#DA434E</Color>
+    <SolidColorBrush x:Key="BaseForegroundBrush" Color="{StaticResource BaseForegroundColor}" options:Freeze="true"/>
     <SolidColorBrush x:Key="BaseButtonBrush" Color="{StaticResource BaseButtonColor}" options:Freeze="true"/>
     <SolidColorBrush x:Key="BaseSystemBrush" Color="{StaticResource BaseSystemColor}" options:Freeze="true"/>
     <SolidColorBrush x:Key="BaseBorderBrush" Color="#FFD0A1A5" options:Freeze="true"/>

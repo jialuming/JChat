@@ -1,0 +1,87 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Control="clr-namespace:JStyleLib.Conotrls"
+                    xmlns:Behavior="clr-namespace:JStyleLib.Behaviors"
+                    xmlns:local="clr-namespace:JStyleLib.Controls">
+    <ControlTemplate x:Key="WindowTemplateKey" TargetType="{x:Type Window}">
+        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+            <Grid>
+                <AdornerDecorator>
+                    <ContentPresenter/>
+                </AdornerDecorator>
+                <ResizeGrip x:Name="WindowResizeGrip" HorizontalAlignment="Right" IsTabStop="false" Visibility="Collapsed" VerticalAlignment="Bottom"/>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="ResizeMode" Value="CanResizeWithGrip"/>
+                    <Condition Property="WindowState" Value="Normal"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" TargetName="WindowResizeGrip" Value="Visible"/>
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="WindowStyle1" TargetType="{x:Type Window}">
+        <Setter Property="Foreground" Value="{DynamicResource BaseForegroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource TransparentBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <AdornerDecorator>
+                            <ContentPresenter/>
+                        </AdornerDecorator>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="ResizeMode" Value="CanResizeWithGrip">
+                <Setter Property="Template" Value="{StaticResource WindowTemplateKey}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="JWindowStyle" TargetType="{x:Type Control:JWindow}">
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="MinHeight" Value="300"/>
+        <Setter Property="MinWidth" Value="300"/>
+        <Setter Property="Behavior:Behaviors.BehaviorColection">
+            <Setter.Value>
+                <Behavior:BehaviorCollection>
+                    <Behavior:ResizeWindowBehavior RelativeClip="5"/>
+                </Behavior:BehaviorCollection>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control:JWindow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="IcoWidth" Width="Auto"/>
+                            <ColumnDefinition x:Name="TitleWidth" Width="Auto"/>
+                            <ColumnDefinition x:Name="LeftCommandWidth" Width="Auto"/>
+                            <ColumnDefinition x:Name="SpaceWidth" Width="*"/>
+                            <ColumnDefinition x:Name="RightCommandWidth" Width="Auto"/>
+                            <ColumnDefinition x:Name="WindowButtonCommandWidth" Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition x:Name="TitleHeight" Height="{TemplateBinding TitleBarHeight}"/>
+                            <RowDefinition x:Name="ContentHeight" Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border x:Name="BG" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
+                        <Border x:Name="TitleBG" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Grid.Row="0" Grid.ColumnSpan="6" Grid.RowSpan="1"/>
+                        <AdornerDecorator Grid.Row="1" Grid.ColumnSpan="6">
+                            <Grid>
+                                <Border x:Name="ContentBG" BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="2" Background="{TemplateBinding Background}"/>
+                                <ContentControl>
+                                    <ContentPresenter/>
+                                </ContentControl>
+                            </Grid>
+                        </AdornerDecorator>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
