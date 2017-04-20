@@ -37,17 +37,26 @@
         <Border Grid.Row="2">
             <TabControl Style="{DynamicResource SysMainTabControlStyle}">
                 <TabItem Header="{DynamicResource Sys_Contact_Ti}" Helper:TabItemHelper.MenuItemsSource="{Binding}" Style="{DynamicResource SysMainTabItemStyle}">
-                    <TreeView Background="Transparent" BorderThickness="0">
+                    <TreeView Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
-                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NickName"/>
-                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="233" Signature="12312312312321312" NameDisplayMode="Remarks"/>
+                            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                            <Uc:UserCtrlFriendItem Margin="0" NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NickName"/>
+                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="233" Signature="1231231231232131231231231233213123123" NameDisplayMode="Remarks"/>
                             <Uc:UserCtrlFriendItem NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NameAndNickName"/>
                             <Uc:UserCtrlFriendItem NickName="小子" Remarks="" Signature="12312312312321312" NameDisplayMode="NameAndNickName"/>
-                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="" Signature="12312312312321312" NameDisplayMode="Remarks"/>
+                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="" Signature="12312312312321312" NameDisplayMode="Remarks" HorizontalAlignment="Stretch"/>
+                            <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
+                                <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="我的设备111" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
+                            <TreeViewItem Header="我的设备222" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
+                            <TreeViewItem Header="我的设备333" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
                         </TreeViewItem>
                         <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
                             <TreeViewItem Header="好友1"/>
                         </TreeViewItem>
+                        <TreeViewItem Header="我的设备111" Style="{DynamicResource SysFriendTreeViewItemStyle}"/>
+                        <TreeViewItem Header="我的设备1111" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
                     </TreeView>
                 </TabItem>
                 <TabItem Header="{DynamicResource Sys_Contact2_Ti}" Style="{DynamicResource SysMainTabItemStyle}">

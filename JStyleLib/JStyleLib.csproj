@@ -177,6 +177,7 @@
     <Compile Include="Conotrls\Helper\TreeItemHelper.cs" />
     <Compile Include="Conotrls\WindowCommandsControl.cs" />
     <Compile Include="Converters\BackgroundToForegroundConverter.cs" />
+    <Compile Include="Converters\DoubleToGridDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
