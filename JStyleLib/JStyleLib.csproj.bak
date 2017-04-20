@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,80 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\Controls - 复制.Button.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
+    <Page Include="Styles\Controls.ScrollBar.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.Calendar.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.CheckBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.ComboBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.DataGrid.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.DatePicker.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.Image.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.ListBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.ListView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.RadioButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.ScrollViewer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.TabControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.TabItem.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.TextBlock.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Controls - 复制.TextBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <DependentUpon>Controls.ToggleButton.xaml</DependentUpon>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\Controls.ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -207,11 +137,16 @@
       <SubType>Designer</SubType>
       <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
+    <Page Include="Styles\Controls.TreeViewItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <DependentUpon>Controls.xaml</DependentUpon>
+    </Page>
     <Page Include="Styles\Controls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\Window.xaml">
+    <Page Include="Styles\Windows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,15 +154,37 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UserCtrlFriendItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\BehaviorCollection.cs" />
+    <Compile Include="Behaviors\Behaviors.cs" />
+    <Compile Include="Behaviors\ResizeWindowBehavior.cs" />
+    <Compile Include="Conotrls\Helper\TabItemHelper.cs" />
     <Compile Include="Conotrls\Helper\TextBoxHelper.cs" />
+    <Compile Include="Conotrls\JWindow.cs" />
     <Compile Include="Conotrls\PathControl.cs" />
+    <Compile Include="Conotrls\PathPresenter.cs" />
+    <Compile Include="Conotrls\Helper\TreeItemHelper.cs" />
+    <Compile Include="Conotrls\WindowCommandsControl.cs" />
+    <Compile Include="Converters\BackgroundToForegroundConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UserControls\UserCtrlFriendItem.xaml.cs">
+      <DependentUpon>UserCtrlFriendItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\Motheds.cs" />
+    <Compile Include="Win32\WM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JEntity\JEntity.csproj">
+      <Project>{C2FC86DF-6B34-4DB9-84C6-7B1790865C91}</Project>
+      <Name>JEntity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JToolsLib\JToolsLib.csproj">
       <Project>{9d2d7bee-93b8-4b91-acaf-cece7a135267}</Project>
       <Name>JToolsLib</Name>
