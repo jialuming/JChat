@@ -10,6 +10,17 @@ namespace JStyleLib.Conotrls.Helper
 {
     public class TreeItemHelper
     {
+        public static readonly DependencyProperty AttachContentProperty =
+            DependencyProperty.RegisterAttached("AttachContent", typeof(object), typeof(TreeItemHelper), new PropertyMetadata(null));
+        public static readonly DependencyProperty HeaderBackgroundProperty =
+            DependencyProperty.RegisterAttached("HeaderBackground", typeof(Brush), typeof(TreeItemHelper), new PropertyMetadata(null));
+        public static readonly DependencyProperty HeaderMarkBackgroundProperty =
+            DependencyProperty.RegisterAttached("HeaderMarkBackground", typeof(Brush), typeof(TreeItemHelper), new PropertyMetadata(null));
+        public static readonly DependencyProperty HeaderHeightProperty =
+            DependencyProperty.RegisterAttached("HeaderHeight", typeof(GridLength), typeof(TreeItemHelper), new PropertyMetadata(new GridLength(1, GridUnitType.Auto)));
+        public static readonly DependencyProperty HeaderIconContentProperty =
+            DependencyProperty.RegisterAttached("HeaderIconContent", typeof(object), typeof(TreeItemHelper), new PropertyMetadata(null));
+
         public static object GetAttachContent(DependencyObject obj)
         {
             return (object)obj.GetValue(AttachContentProperty);
@@ -19,10 +30,6 @@ namespace JStyleLib.Conotrls.Helper
         {
             obj.SetValue(AttachContentProperty, value);
         }
-
-        // Using a DependencyProperty as the backing store for AttachContent.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty AttachContentProperty =
-            DependencyProperty.RegisterAttached("AttachContent", typeof(object), typeof(TreeItemHelper), new PropertyMetadata(null));
 
         public static Brush GetHeaderBackground(DependencyObject obj)
         {
@@ -34,10 +41,6 @@ namespace JStyleLib.Conotrls.Helper
             obj.SetValue(HeaderBackgroundProperty, value);
         }
 
-        // Using a DependencyProperty as the backing store for HeaderBackground.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty HeaderBackgroundProperty =
-            DependencyProperty.RegisterAttached("HeaderBackground", typeof(Brush), typeof(TreeItemHelper), new PropertyMetadata(null));
-
         public static Brush GetHeaderMarkBackground(DependencyObject obj)
         {
             return (Brush)obj.GetValue(HeaderMarkBackgroundProperty);
@@ -47,12 +50,6 @@ namespace JStyleLib.Conotrls.Helper
         {
             obj.SetValue(HeaderMarkBackgroundProperty, value);
         }
-
-        // Using a DependencyProperty as the backing store for HeaderMarkBackground.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty HeaderMarkBackgroundProperty =
-            DependencyProperty.RegisterAttached("HeaderMarkBackground", typeof(Brush), typeof(TreeItemHelper), new PropertyMetadata(null));
-
-
 
         public static GridLength GetHeaderHeight(DependencyObject obj)
         {
@@ -64,10 +61,15 @@ namespace JStyleLib.Conotrls.Helper
             obj.SetValue(HeaderHeightProperty, value);
         }
 
-        // Using a DependencyProperty as the backing store for HeaderHeight.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty HeaderHeightProperty =
-            DependencyProperty.RegisterAttached("HeaderHeight", typeof(GridLength), typeof(TreeItemHelper), new PropertyMetadata(new GridLength(1,GridUnitType.Auto)));
+        public static object GetHeaderIconContent(DependencyObject obj)
+        {
+            return (object)obj.GetValue(HeaderIconContentProperty);
+        }
 
+        public static void SetHeaderIconContent(DependencyObject obj, object value)
+        {
+            obj.SetValue(HeaderIconContentProperty, value);
+        }
 
     }
 }

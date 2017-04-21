@@ -21,9 +21,9 @@ namespace JStyleLib.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             double d = (double)value;
-            if (d == double.NaN || d < 0)
+            if ((d.Equals(double.NaN)) || (d < 0))
             {
-                return new GridLength(d, GridUnitType.Auto);
+                return new GridLength(1, GridUnitType.Auto);
 
             }
             return new GridLength(d, GridUnitType.Pixel);

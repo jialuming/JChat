@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{24DDBD99-7321-4443-85B9-8458BF610869}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{2D8820FB-A0B1-4925-92B1-C598028964B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{24DDBD99-7321-4443-85B9-8458BF610869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24DDBD99-7321-4443-85B9-8458BF610869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24DDBD99-7321-4443-85B9-8458BF610869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8820FB-A0B1-4925-92B1-C598028964B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8820FB-A0B1-4925-92B1-C598028964B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8820FB-A0B1-4925-92B1-C598028964B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8820FB-A0B1-4925-92B1-C598028964B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +72,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{4330AC97-4CF9-4E3F-8696-212FB7C7D086} = {C9DEFC3B-FAA5-405F-B665-CE31D2ACEAF1}
 		{24DDBD99-7321-4443-85B9-8458BF610869} = {C9DEFC3B-FAA5-405F-B665-CE31D2ACEAF1}
+		{2D8820FB-A0B1-4925-92B1-C598028964B7} = {C9DEFC3B-FAA5-405F-B665-CE31D2ACEAF1}
 	EndGlobalSection
 EndGlobal

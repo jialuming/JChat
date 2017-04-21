@@ -1,0 +1,26 @@
+﻿<Window x:Class="Controls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:Control="clr-namespace:JStyleLib.Conotrls;assembly=JStyleLib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Control:PathControl Fill="Black" VerticalAlignment="Top">
+                <ContentControl Content="{DynamicResource Button_Search_Tb }" HorizontalContentAlignment="Stretch"/>
+            </Control:PathControl>
+            <TextBox/>
+            <TreeView>
+                <TreeViewItem Header="TopHeaer" Style="{DynamicResource SysFriendTreeViewItemStyle}">
+                    <TreeViewItem Header="SubHeader" Style="{DynamicResource SysFriendTreeViewItemStyle}">
+                        <TreeViewItem Header="SubItem" Style="{DynamicResource SysFriendTreeViewItemStyle}"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="SubItem" Style="{DynamicResource SysFriendTreeViewItemStyle}"/>
+                </TreeViewItem>
+                <TreeViewItem Header="TopItem" Style="{DynamicResource SysFriendTreeViewItemStyle}"/>
+            </TreeView>
+        </StackPanel>
+    </Grid>
+</Window>

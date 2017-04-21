@@ -171,6 +171,7 @@
     <Compile Include="Behaviors\ResizeWindowBehavior.cs" />
     <Compile Include="Conotrls\Helper\TabItemHelper.cs" />
     <Compile Include="Conotrls\Helper\TextBoxHelper.cs" />
+    <Compile Include="Conotrls\JTreeViewItem.cs" />
     <Compile Include="Conotrls\JWindow.cs" />
     <Compile Include="Conotrls\PathControl.cs" />
     <Compile Include="Conotrls\PathPresenter.cs" />
