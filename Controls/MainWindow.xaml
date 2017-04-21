@@ -21,6 +21,21 @@
                 </TreeViewItem>
                 <TreeViewItem Header="TopItem" Style="{DynamicResource SysFriendTreeViewItemStyle}"/>
             </TreeView>
+            <Menu Style="{DynamicResource MenuStyle1}" Margin="0,0,356,0">
+                <Menu.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </Menu.ItemsPanel>
+                <MenuItem Icon="12314" Header="TopHeader" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="SubHeader" Style="{DynamicResource MenuItemStyle}">
+                        <MenuItem Header="SubHeader" Style="{DynamicResource MenuItemStyle}"/>
+                        <MenuItem Header="SubHeader" Style="{DynamicResource MenuItemStyle}"/>
+                    </MenuItem>
+                    <MenuItem Header="SubHeader" Style="{DynamicResource MenuItemStyle}"/>
+                </MenuItem>
+                <MenuItem Header="TopItem" Style="{DynamicResource MenuItemStyle}"/>
+            </Menu>
         </StackPanel>
     </Grid>
 </Window>

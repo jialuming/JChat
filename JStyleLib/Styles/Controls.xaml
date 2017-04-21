@@ -14,6 +14,7 @@
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.Image.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.ListBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.ListView.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.MenuItem.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.RadioButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.ScrollViewer.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TabControl.xaml"/>
