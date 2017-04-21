@@ -17,6 +17,7 @@ namespace JStyleLib.Conotrls
     [TemplatePart(Name = PART_ContentBG, Type = typeof(Border))]
     [TemplatePart(Name = PART_BG, Type = typeof(Border))]
     [TemplatePart(Name = PART_TitleBG, Type = typeof(Border))]
+    [TemplatePart(Name = Root, Type = typeof(Panel))]
     public class JWindow : Window
     {
         private const string PART_Icon = "PART_Icon";
@@ -28,6 +29,7 @@ namespace JStyleLib.Conotrls
         private const string PART_ContentBG = "PART_ContentBG";
         private const string PART_BG = "PART_BG";
         private const string PART_TitleBG = "PART_TitleBG";
+        private const string Root = "Root";
         static JWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(JWindow), new FrameworkPropertyMetadata(typeof(JWindow)));
@@ -42,6 +44,7 @@ namespace JStyleLib.Conotrls
         Border bg;
         Border titleBg;
         Border contentBg;
+        Panel root;
 
         public static readonly DependencyProperty TitleBarHeightProperty =
             DependencyProperty.Register("TitleBarHeight", typeof(GridLength), typeof(JWindow), new PropertyMetadata(new GridLength(30)));
@@ -54,7 +57,7 @@ namespace JStyleLib.Conotrls
         public static readonly DependencyProperty IconVisibilityProperty =
             DependencyProperty.Register("IconVisibility", typeof(Visibility), typeof(JWindow), new PropertyMetadata(Visibility.Visible));
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(JWindow), new PropertyMetadata(new CornerRadius(3,3,3,3), OnCornerRadiusChanged));
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(JWindow), new PropertyMetadata(new CornerRadius(3, 3, 3, 3), OnCornerRadiusChanged));
         public static readonly DependencyProperty IsAllDragMoveProperty =
             DependencyProperty.Register("IsAllDragMove", typeof(bool), typeof(JWindow), new PropertyMetadata(true));
         public static readonly DependencyProperty IconTemplateProperty =
@@ -167,6 +170,7 @@ namespace JStyleLib.Conotrls
             bg = GetTemplateChild(PART_BG) as Border;
             titleBg = GetTemplateChild(PART_TitleBG) as Border;
             contentBg = GetTemplateChild(PART_ContentBG) as Border;
+            root = GetTemplateChild(Root) as Panel;
 
             SetWindowEvent();
             SetCornerRadius(CornerRadius);
@@ -196,7 +200,7 @@ namespace JStyleLib.Conotrls
 
         private void JWindow_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            Clip = GetPathGeometry();
+            root.Clip = GetPathGeometry();
             //Clip = new RectangleGeometry() { RadiusX = CornerRadius.X, RadiusY = CornerRadius.Y, Rect = new Rect(new Point(0, 0), new Size(this.ActualWidth, this.ActualHeight)) };
         }
 
@@ -228,12 +232,12 @@ namespace JStyleLib.Conotrls
         {
             Point start = new Point(0, CornerRadius.TopLeft);
             Point point1 = new Point(CornerRadius.TopLeft, 0);
-            Point point2 = new Point(ActualWidth - CornerRadius.TopRight, 0);
-            Point point3 = new Point(ActualWidth, CornerRadius.TopRight);
-            Point point4 = new Point(ActualWidth, ActualHeight - CornerRadius.BottomRight);
-            Point point5 = new Point(ActualWidth - CornerRadius.BottomRight, ActualHeight);
-            Point point6 = new Point(CornerRadius.BottomLeft, ActualHeight);
-            Point point7 = new Point(0, ActualHeight - CornerRadius.BottomLeft);
+            Point point2 = new Point(root.ActualWidth - CornerRadius.TopRight, 0);
+            Point point3 = new Point(root.ActualWidth, CornerRadius.TopRight);
+            Point point4 = new Point(root.ActualWidth, root.ActualHeight - CornerRadius.BottomRight);
+            Point point5 = new Point(root.ActualWidth - CornerRadius.BottomRight, root.ActualHeight);
+            Point point6 = new Point(CornerRadius.BottomLeft, root.ActualHeight);
+            Point point7 = new Point(0, root.ActualHeight - CornerRadius.BottomLeft);
             Size topLeftSize = new Size(CornerRadius.TopLeft, CornerRadius.TopLeft);
             Size topRightSize = new Size(CornerRadius.TopRight, CornerRadius.TopRight);
             Size bottomLeftSize = new Size(CornerRadius.BottomLeft, CornerRadius.BottomLeft);

@@ -9,8 +9,8 @@
         <Image x:Name="CtrlIco" Grid.Column="0" Grid.RowSpan="2" Width="40" Height="40" Margin="10 10 10 10" Stretch="Fill" Source="{Binding IconPath,ElementName=UC}"/>
         <DockPanel Grid.Column="1" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Grid.Column="1" Grid.Row="0">
-                <TextBlock x:Name="CtrlNickName" Text="{Binding NickName,ElementName=UC}" FontSize="12"/>
-                <TextBlock x:Name="CtrlRemarks" Text="{Binding Remarks,ElementName=UC}" FontSize="12"/>
+                <TextBlock x:Name="CtrlNickName" Text="{Binding NickName,ElementName=UC}" FontSize="14"/>
+                <TextBlock x:Name="CtrlRemarks" Text="{Binding Remarks,ElementName=UC}" FontSize="14"/>
                 <Label x:Name="Other"/>
             </StackPanel>
             <Label x:Name="CtrlSignature" Padding="0 3" Content="{Binding Signature,ElementName=UC}" FontSize="10"/>

@@ -5,6 +5,7 @@ using JChat.Model;
 using JEntity;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
+using System;
 
 namespace JChat.ViewModel
 {
@@ -88,15 +89,34 @@ namespace JChat.ViewModel
         {
             _dataService = dataService;
             //FriendItemsSource.Add(new User() { IconPath = "pack://application:,,,/JChat;component/Img/touxiang.png" });
+            SetVisualData();
+
+        }
+
+        private void SetVisualData()
+        {
+            this.TUSer = new User()
+            {
+                IconPath = " pack://application:,,,/JChat;component/Img/touxiang.png",
+                NickName = "‭﹎╃usT C.c﹎夣",
+                Signature = "Tel:17615123599",
+            };
             TreeViewItem mi;
             for (int i = 0; i < 2; i++)
             {
                 mi = new TreeViewItem();
-                mi.Header = "12312312";
+                mi.Header = "我的好友列表" + i;
                 ObservableCollection<User> oc = new ObservableCollection<User>();
                 for (int j = 0; j < 10; j++)
                 {
-                    oc.Add(new User() { IconPath = "pack://application:,,,/JChat;component/Img/touxiang.png",NickName="!231231",Sex="123",Signature="23",Remarks="3123123" });
+                    oc.Add(new User()
+                    {
+                        IconPath = "pack://application:,,,/JChat;component/Img/touxiang.png",
+                        NickName = "好友" + j + "的昵称",
+                        Sex = "好友" + j + "的性别",
+                        Signature = "好友" + j + "的个性签名",
+                        Remarks = "好友" + j + "的备注"
+                    });
                 }
                 mi.ItemsSource = oc;
                 FriendItemsSource.Add(mi);

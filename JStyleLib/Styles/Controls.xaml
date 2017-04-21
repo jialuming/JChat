@@ -17,6 +17,7 @@
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.MenuItem.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.RadioButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.ScrollViewer.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.Separator.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TabControl.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TabItem.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Styles/Controls.TextBlock.xaml"/>
@@ -28,6 +29,8 @@
         <ResourceDictionary Source="pack://application:,,,/JStyleLib;component/Resources/iconfont.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButtonStyle}" />
+    <Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource DefaultMenuItemStyle}" />
+    <Style TargetType="{x:Type Separator}" BasedOn="{StaticResource DefaultSeparatorStyle}" />
     
     
     

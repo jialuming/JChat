@@ -109,7 +109,8 @@ namespace JStyleLib.Conotrls.Helper
         {
             obj.SetValue(PopupBackgroundProperty, value);
         }
-
+        
+        [AttachedPropertyBrowsableForType(typeof(Separator))]
         [AttachedPropertyBrowsableForType(typeof(MenuItem))]
         public static GridLength GetIconWidth(DependencyObject obj)
         {
