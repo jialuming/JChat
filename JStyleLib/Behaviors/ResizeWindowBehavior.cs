@@ -29,7 +29,7 @@ namespace JStyleLib.Behaviors
 
             AssociatedObject.SourceInitialized += AssociatedObject_SourceInitialized;
             AssociatedObject.PreviewMouseDown += AssociatedObject_PreviewMouseDown;
-            AssociatedObject.PreviewMouseMove += AssociatedObject_PreviewMouseMove;
+            AssociatedObject.MouseMove += AssociatedObject_PreviewMouseMove;
         }
 
         private void AssociatedObject_PreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e)

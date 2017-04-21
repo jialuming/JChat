@@ -15,7 +15,7 @@ namespace JEntity
         public string Remarks { get; set; }
         public string EMail { get; set; }
         public string Sex { get; set; }
-        public string IcoPath { get; set; }
+        public string IconPath { get; set; }
         public string Signature { get; set; }
     }
 }

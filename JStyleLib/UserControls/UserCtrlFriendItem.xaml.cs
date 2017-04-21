@@ -47,15 +47,72 @@ namespace JStyleLib.UserControls
         public static readonly DependencyProperty RemarksProperty =
             DependencyProperty.Register("Remarks", typeof(string), typeof(UserCtrlFriendItem), new FrameworkPropertyMetadata(null, RemarksChanged, RamarksCoerce));
 
-        public ImageSource IcoPath
+        public ImageSource IconPath
         {
-            get { return (ImageSource)GetValue(IcoPathProperty); }
-            set { SetValue(IcoPathProperty, value); }
+            get { return (ImageSource)GetValue(IconPathProperty); }
+            set { SetValue(IconPathProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for IcoPath.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty IcoPathProperty =
-            DependencyProperty.Register("IcoPath", typeof(ImageSource), typeof(UserCtrlFriendItem), new PropertyMetadata(default(ImageSource)));
+        public static readonly DependencyProperty IconPathProperty =
+            DependencyProperty.Register("IconPath", typeof(ImageSource), typeof(UserCtrlFriendItem), new PropertyMetadata(default(ImageSource)));
+
+
+
+        public Size IconSize
+        {
+            get { return (Size)GetValue(IconSizeProperty); }
+            set { SetValue(IconSizeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IconSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IconSizeProperty =
+            DependencyProperty.Register("IconSize", typeof(Size), typeof(UserCtrlFriendItem), new PropertyMetadata(new Size(40, 40)));
+
+
+
+        public string IconUri
+        {
+            get { return (string)GetValue(IconUriProperty); }
+            set { SetValue(IconUriProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IconUri.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IconUriProperty =
+            DependencyProperty.Register("IconUri", typeof(string), typeof(UserCtrlFriendItem), new PropertyMetadata(null, OnIconUriChanged));
+
+        private static void OnIconUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            UserCtrlFriendItem friendItem = d as UserCtrlFriendItem;
+            if (e.NewValue != e.OldValue)
+            {
+                SetIconImageSource(friendItem, e.NewValue.ToString());
+            }
+        }
+
+        private static void SetIconImageSource(UserCtrlFriendItem friendItem, string value)
+        {
+            BitmapImage image = new BitmapImage();
+
+            image.BeginInit();
+
+            image.UriSource = new System.Uri(value);
+
+            image.DecodePixelWidth = (int)friendItem.IconSize.Width;
+            image.DecodePixelHeight = (int)friendItem.IconSize.Height;
+
+            image.EndInit();
+
+            image.Freeze();
+
+
+            friendItem.IconPath = image;
+        }
+
+        private static void OnIconPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            //
+        }
 
         public object Signature
         {

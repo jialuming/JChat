@@ -162,10 +162,10 @@
     <Folder Include="Design\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bitbug_favicon.ico" />
+    <Resource Include="Img\TaskBarIco.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\TaskBarIco.ico" />
+    <Resource Include="Img\touxiang.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

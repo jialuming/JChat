@@ -15,7 +15,7 @@
     <ControlTemplate x:Key="NoneItemTreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
         <Grid x:Name="Root">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MinWidth="26" Width="{TemplateBinding Helper:TreeItemHelper.HeaderHeight}"/>
+                <ColumnDefinition Width="{TemplateBinding Helper:TreeItemHelper.HeaderHeight}"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Border x:Name="HeaderBG" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding Helper:ControlHelper.HeaderBackground}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
@@ -117,11 +117,11 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="MinHeight" Value="26"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-        <Setter Property="Helper:TreeItemHelper.HeaderHeight" Value="26"/>
         <Setter Property="Helper:ControlHelper.HeaderIconContent" Value="{x:Null}"/>
         <Setter Property="Template" Value="{StaticResource NoneItemTreeViewItemStyle}"/>
         <Style.Triggers>
             <Trigger Property="HasItems" Value="true">
+                <Setter Property="Helper:TreeItemHelper.HeaderHeight" Value="26"/>
                 <Setter Property="Template" Value="{StaticResource HasItemsTreeViewItemStyle}"/>
             </Trigger>
             <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">

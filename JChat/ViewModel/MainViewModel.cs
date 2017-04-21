@@ -3,6 +3,8 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using JChat.Model;
 using JEntity;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
 
 namespace JChat.ViewModel
 {
@@ -47,29 +49,37 @@ namespace JChat.ViewModel
                 RaisePropertyChanged(TUSerPropertyName);
             }
         }
-        #endregion
+
         /// <summary>
-        /// The <see cref="WelcomeTitle" /> property's name.
+        /// The <see cref="FriendItemsSource" /> property's name.
         /// </summary>
-        public const string WelcomeTitlePropertyName = "WelcomeTitle";
+        public const string FriendItemsSourcePropertyName = "FriendItemsSource";
 
-        private string _welcomeTitle = string.Empty;
+        private ObservableCollection<TreeViewItem> _friendItemsSource = new ObservableCollection<TreeViewItem>();
 
         /// <summary>
-        /// Gets the WelcomeTitle property.
+        /// Sets and gets the FriendItemsSource property.
         /// Changes to that property's value raise the PropertyChanged event. 
         /// </summary>
-        public string WelcomeTitle
+        public ObservableCollection<TreeViewItem> FriendItemsSource
         {
             get
             {
-                return _welcomeTitle;
+                return _friendItemsSource;
             }
+
             set
             {
-                Set(ref _welcomeTitle, value);
+                if (_friendItemsSource == value)
+                {
+                    return;
+                }
+
+                _friendItemsSource = value;
+                RaisePropertyChanged(TUSerPropertyName);
             }
         }
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -77,6 +87,20 @@ namespace JChat.ViewModel
         public MainViewModel(IDataService dataService)
         {
             _dataService = dataService;
+            //FriendItemsSource.Add(new User() { IconPath = "pack://application:,,,/JChat;component/Img/touxiang.png" });
+            TreeViewItem mi;
+            for (int i = 0; i < 2; i++)
+            {
+                mi = new TreeViewItem();
+                mi.Header = "12312312";
+                ObservableCollection<User> oc = new ObservableCollection<User>();
+                for (int j = 0; j < 10; j++)
+                {
+                    oc.Add(new User() { IconPath = "pack://application:,,,/JChat;component/Img/touxiang.png",NickName="!231231",Sex="123",Signature="23",Remarks="3123123" });
+                }
+                mi.ItemsSource = oc;
+                FriendItemsSource.Add(mi);
+            }
         }
 
         #region Commands

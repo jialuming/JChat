@@ -4,6 +4,7 @@
         xmlns:Helper="clr-namespace:JStyleLib.Conotrls.Helper;assembly=JStyleLib"
         xmlns:Control="clr-namespace:JStyleLib.Conotrls;assembly=JStyleLib"
         xmlns:TaskBar="http://www.hardcodet.net/taskbar"
+                 xmlns:entity="clr-namespace:JEntity;assembly=JEntity"
         xmlns:Uc="clr-namespace:JStyleLib.UserControls;assembly=JStyleLib"
         Height="800" TitleBarVisibility="Visible" Icon="/JChat;component/Img/TaskBarIco.ico"
         Width="300" Style="{DynamicResource JWindowStyle}" TitleBackground="{DynamicResource BaseSystemBrush}" Background="{DynamicResource BaseSystemBrush}"
@@ -36,27 +37,36 @@
         </Border>
         <Border Grid.Row="2">
             <TabControl Style="{DynamicResource SysMainTabControlStyle}">
-                <TabItem Header="{DynamicResource Sys_Contact_Ti}" Helper:TabItemHelper.MenuItemsSource="{Binding}" Style="{DynamicResource SysMainTabItemStyle}">
-                    <TreeView Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
-                            <Button HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
-                            <Uc:UserCtrlFriendItem Margin="0" NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NickName"/>
-                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="233" Signature="1231231231232131231231231233213123123" NameDisplayMode="Remarks"/>
-                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="小小子" Signature="12312312312321312" NameDisplayMode="NameAndNickName"/>
-                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="" Signature="12312312312321312" NameDisplayMode="NameAndNickName"/>
-                            <Uc:UserCtrlFriendItem NickName="小子" Remarks="" Signature="12312312312321312" NameDisplayMode="Remarks" HorizontalAlignment="Stretch"/>
-                            <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
-                                <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
-                            </TreeViewItem>
-                            <TreeViewItem Header="我的设备111" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
-                            <TreeViewItem Header="我的设备222" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
-                            <TreeViewItem Header="我的设备333" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
-                        </TreeViewItem>
-                        <TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}">
-                            <TreeViewItem Header="好友1"/>
+                <TabItem Header="{DynamicResource Sys_Contact_Ti}"  Helper:TabItemHelper.MenuItemsSource="{Binding}" Style="{DynamicResource SysMainTabItemStyle}">
+                    <TabItem.Resources>
+                        <Style BasedOn="{StaticResource SysFriendTreeViewItemStyle}" TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="HeaderTemplate">
+                                <Setter.Value>
+                                    <DataTemplate DataType="{x:Type entity:User}">
+                                        <Uc:UserCtrlFriendItem IconPath="{Binding IconPath}" NickName="{Binding NickName}" Signature="{Binding Signature}" Remarks="{Binding Remarks}" NameDisplayMode="NameAndNickName"/>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabItem.Resources>
+                    <TreeView ItemsSource="{Binding FriendItemsSource}" VirtualizingPanel.IsVirtualizing="False" VirtualizingPanel.CacheLengthUnit="Page" VirtualizingPanel.ScrollUnit="Item" VirtualizingPanel.VirtualizationMode="Recycling"  Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <!--<TreeViewItem Header="我的设备" Style="{DynamicResource SysFriendTreeViewItemStyle}" IsExpanded="True">
+                            --><!--<entity:User IconPath="/JChat;component/Img/touxiang.png" NickName="122312312" Signature="1dasdasd" Remarks="213123"/>-->
+                            <!--<entity:User IconPath="/JChat;component/Img/touxiang.png" NickName="122312312" Signature="1dasdasd" Remarks="213123"/>--><!--
                         </TreeViewItem>
                         <TreeViewItem Header="我的设备111" Style="{DynamicResource SysFriendTreeViewItemStyle}"/>
-                        <TreeViewItem Header="我的设备1111" Style="{DynamicResource SysFriendTreeViewItemStyle}"></TreeViewItem>
+                        <TreeViewItem Header="我的设备1111" Style="{DynamicResource SysFriendTreeViewItemStyle}">-->
+                            <!--<Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>
+                            <Image Source="/JChat;component/Img/touxiang.png"/>-->
+                        <!--</TreeViewItem>-->
                     </TreeView>
                 </TabItem>
                 <TabItem Header="{DynamicResource Sys_Contact2_Ti}" Style="{DynamicResource SysMainTabItemStyle}">

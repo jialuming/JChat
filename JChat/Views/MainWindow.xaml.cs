@@ -33,5 +33,10 @@ namespace JChat.Views
         {
             this.Show();
         }
+
+        private void TreeView_Collapsed(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

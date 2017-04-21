@@ -44,6 +44,8 @@
     </Style>
     <Style x:Key="JWindowStyle" TargetType="{x:Type Control:JWindow}">
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="MinHeight" Value="300"/>
@@ -71,6 +73,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Control:JWindow}">
                     <Border x:Name="PART_BG" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Grid.ColumnSpan="6" Grid.RowSpan="2">
+                        <Border.Effect>
+                            <DropShadowEffect RenderingBias="Quality" ShadowDepth="0" Color="#FF000000" BlurRadius="5" Direction="90"/>
+                        </Border.Effect>
                         <Grid x:Name="Root">
                             <Grid.RowDefinitions>
                                 <RowDefinition x:Name="TitleHeight"
