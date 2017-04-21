@@ -18,12 +18,12 @@
                 <ColumnDefinition MinWidth="26" Width="{TemplateBinding Helper:TreeItemHelper.HeaderHeight}"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Border x:Name="HeaderBG" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding Helper:TreeItemHelper.HeaderBackground}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
-            <Border x:Name="HeaderMark" Grid.ColumnSpan="2" Background="{TemplateBinding Helper:TreeItemHelper.HeaderMarkBackground}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
-            <ContentControl Content="{TemplateBinding Helper:TreeItemHelper.HeaderIconContent}"/>
+            <Border x:Name="HeaderBG" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding Helper:ControlHelper.HeaderBackground}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
+            <Border x:Name="HeaderMark" Grid.ColumnSpan="2" Background="{TemplateBinding Helper:ControlHelper.HeaderMarkBackground}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
+            <ContentControl Content="{TemplateBinding Helper:ControlHelper.HeaderIconContent}"/>
             <DockPanel Grid.Column="1">
                 <ContentPresenter x:Name="PART_Header" ContentSource="Header" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                <ContentControl Content="{TemplateBinding Helper:TreeItemHelper.AttachContent}"/>
+                <ContentControl Content="{TemplateBinding Helper:ControlHelper.AttachContent}"/>
             </DockPanel>
         </Grid>
         <ControlTemplate.Triggers>
@@ -47,8 +47,8 @@
                     <ColumnDefinition MinWidth="26" Width="{TemplateBinding Helper:TreeItemHelper.HeaderHeight}"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border x:Name="HeaderBG" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding Helper:TreeItemHelper.HeaderBackground}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
-                <Border x:Name="HeaderMark" Grid.ColumnSpan="2" Background="{TemplateBinding Helper:TreeItemHelper.HeaderMarkBackground}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
+                <Border x:Name="HeaderBG" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding Helper:ControlHelper.HeaderBackground}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
+                <Border x:Name="HeaderMark" Grid.ColumnSpan="2" Background="{TemplateBinding Helper:ControlHelper.HeaderMarkBackground}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true"/>
                 <Border Width="26" Height="26" Grid.Column="0">
                     <Path x:Name="ExpandPath" HorizontalAlignment="Center" VerticalAlignment="Center" Data="{StaticResource TreeArrow}" Fill="#A87F82" Stroke="#A87F82">
                         <Path.RenderTransform>
@@ -118,7 +118,7 @@
         <Setter Property="MinHeight" Value="26"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="Helper:TreeItemHelper.HeaderHeight" Value="26"/>
-        <Setter Property="Helper:TreeItemHelper.HeaderIconContent" Value="{StaticResource Text}"/>
+        <Setter Property="Helper:ControlHelper.HeaderIconContent" Value="{x:Null}"/>
         <Setter Property="Template" Value="{StaticResource NoneItemTreeViewItemStyle}"/>
         <Style.Triggers>
             <Trigger Property="HasItems" Value="true">
