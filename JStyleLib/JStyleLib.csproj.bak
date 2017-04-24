@@ -53,18 +53,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\Controls.Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Styles\Controls.MenuItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
     <Page Include="Styles\Controls.ScrollBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <DependentUpon>Controls.xaml</DependentUpon>
+    </Page>
+    <Page Include="Styles\Controls.Separator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Controls.ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,14 +173,17 @@
     <Compile Include="Behaviors\BehaviorCollection.cs" />
     <Compile Include="Behaviors\Behaviors.cs" />
     <Compile Include="Behaviors\ResizeWindowBehavior.cs" />
+    <Compile Include="Conotrls\Helper\ControlHelper.cs" />
     <Compile Include="Conotrls\Helper\TabItemHelper.cs" />
     <Compile Include="Conotrls\Helper\TextBoxHelper.cs" />
+    <Compile Include="Conotrls\JTreeViewItem.cs" />
     <Compile Include="Conotrls\JWindow.cs" />
     <Compile Include="Conotrls\PathControl.cs" />
     <Compile Include="Conotrls\PathPresenter.cs" />
     <Compile Include="Conotrls\Helper\TreeItemHelper.cs" />
     <Compile Include="Conotrls\WindowCommandsControl.cs" />
     <Compile Include="Converters\BackgroundToForegroundConverter.cs" />
+    <Compile Include="Converters\DoubleToGridDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

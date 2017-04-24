@@ -66,6 +66,7 @@
     <Page Include="Styles\Controls.Separator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>Controls.xaml</DependentUpon>
     </Page>
     <Page Include="Styles\Controls.ToggleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
