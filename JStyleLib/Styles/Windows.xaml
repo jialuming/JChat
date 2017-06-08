@@ -66,6 +66,7 @@
             <Setter.Value>
                 <Behavior:BehaviorCollection>
                     <Behavior:ResizeWindowBehavior RelativeClip="5"/>
+                    <Behavior:CornerRadiusBehavior CornerRadius="5"/>
                 </Behavior:BehaviorCollection>
             </Setter.Value>
         </Setter>

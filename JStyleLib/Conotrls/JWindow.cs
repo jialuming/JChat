@@ -56,8 +56,6 @@ namespace JStyleLib.Conotrls
             DependencyProperty.Register("TitleVisibility", typeof(Visibility), typeof(JWindow), new PropertyMetadata(Visibility.Collapsed));
         public static readonly DependencyProperty IconVisibilityProperty =
             DependencyProperty.Register("IconVisibility", typeof(Visibility), typeof(JWindow), new PropertyMetadata(Visibility.Visible));
-        public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(JWindow), new PropertyMetadata(new CornerRadius(3, 3, 3, 3), OnCornerRadiusChanged));
         public static readonly DependencyProperty IsAllDragMoveProperty =
             DependencyProperty.Register("IsAllDragMove", typeof(bool), typeof(JWindow), new PropertyMetadata(true));
         public static readonly DependencyProperty IconTemplateProperty =
@@ -99,21 +97,6 @@ namespace JStyleLib.Conotrls
         {
             get { return (Visibility)GetValue(IconVisibilityProperty); }
             set { SetValue(IconVisibilityProperty, value); }
-        }
-
-        public CornerRadius CornerRadius
-        {
-            get { return (CornerRadius)GetValue(CornerRadiusProperty); }
-            set { SetValue(CornerRadiusProperty, value); }
-        }
-
-        private static void OnCornerRadiusChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            JWindow jw = d as JWindow;
-            if (e.NewValue != e.OldValue)
-            {
-                jw.SetCornerRadius((CornerRadius)e.NewValue);
-            }
         }
 
         public bool IsAllDragMove
@@ -173,35 +156,12 @@ namespace JStyleLib.Conotrls
             root = GetTemplateChild(Root) as Panel;
 
             SetWindowEvent();
-            SetCornerRadius(CornerRadius);
         }
 
         private void SetWindowEvent()
         {
             min.Click += Min_Click;
             close.Click += Close_Click;
-        }
-
-        private void SetCornerRadius(CornerRadius cornerRadius)
-        {
-            if (cornerRadius.BottomLeft == 0 &&
-                cornerRadius.BottomRight == 0 &&
-                cornerRadius.TopLeft == 0 &&
-                cornerRadius.TopRight == 0)
-            {
-                SizeChanged -= JWindow_SizeChanged;
-            }
-            else
-            {
-                SizeChanged -= JWindow_SizeChanged;
-                SizeChanged += JWindow_SizeChanged;
-            }
-        }
-
-        private void JWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            root.Clip = GetPathGeometry();
-            //Clip = new RectangleGeometry() { RadiusX = CornerRadius.X, RadiusY = CornerRadius.Y, Rect = new Rect(new Point(0, 0), new Size(this.ActualWidth, this.ActualHeight)) };
         }
 
         private void Min_Click(object sender, RoutedEventArgs e)
@@ -228,43 +188,5 @@ namespace JStyleLib.Conotrls
             base.OnPreviewMouseMove(e);
         }
 
-        PathGeometry GetPathGeometry()
-        {
-            Point start = new Point(0, CornerRadius.TopLeft);
-            Point point1 = new Point(CornerRadius.TopLeft, 0);
-            Point point2 = new Point(root.ActualWidth - CornerRadius.TopRight, 0);
-            Point point3 = new Point(root.ActualWidth, CornerRadius.TopRight);
-            Point point4 = new Point(root.ActualWidth, root.ActualHeight - CornerRadius.BottomRight);
-            Point point5 = new Point(root.ActualWidth - CornerRadius.BottomRight, root.ActualHeight);
-            Point point6 = new Point(CornerRadius.BottomLeft, root.ActualHeight);
-            Point point7 = new Point(0, root.ActualHeight - CornerRadius.BottomLeft);
-            Size topLeftSize = new Size(CornerRadius.TopLeft, CornerRadius.TopLeft);
-            Size topRightSize = new Size(CornerRadius.TopRight, CornerRadius.TopRight);
-            Size bottomLeftSize = new Size(CornerRadius.BottomLeft, CornerRadius.BottomLeft);
-            Size bottomRightSize = new Size(CornerRadius.BottomRight, CornerRadius.BottomRight);
-            PathSegmentCollection collection = new PathSegmentCollection();
-            PathSegment LeftTopA = new ArcSegment(point1, topLeftSize, 0, false, SweepDirection.Clockwise, true);
-            collection.Add(LeftTopA);
-            PathSegment TopL = new LineSegment(point2, true);
-            collection.Add(TopL);
-            PathSegment RightTopA = new ArcSegment(point3, topRightSize, 0, false, SweepDirection.Clockwise, true);
-            collection.Add(RightTopA);
-            PathSegment RightL = new LineSegment(point4, true);
-            collection.Add(RightL);
-            PathSegment RightBottomA = new ArcSegment(point5, bottomRightSize, 0, false, SweepDirection.Clockwise, true);
-            collection.Add(RightBottomA);
-            PathSegment BottomL = new LineSegment(point6, true);
-            collection.Add(BottomL);
-            PathSegment BottomLeftA = new ArcSegment(point7, bottomLeftSize, 0, false, SweepDirection.Clockwise, true);
-            collection.Add(BottomLeftA);
-            PathSegment LeftL = new LineSegment(point7, true);
-            collection.Add(LeftL);
-
-            PathFigure pf = new PathFigure(start, collection, true);
-
-            PathFigureCollection collection2 = new PathFigureCollection();
-            collection2.Add(pf);
-            return new PathGeometry(collection2);
-        }
     }
 }

@@ -173,6 +173,7 @@
   <ItemGroup>
     <Compile Include="Behaviors\BehaviorCollection.cs" />
     <Compile Include="Behaviors\Behaviors.cs" />
+    <Compile Include="Behaviors\CornerRadiusBehavior.cs" />
     <Compile Include="Behaviors\ResizeWindowBehavior.cs" />
     <Compile Include="Conotrls\Helper\ControlHelper.cs" />
     <Compile Include="Conotrls\Helper\TabItemHelper.cs" />
