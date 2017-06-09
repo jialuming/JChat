@@ -4,7 +4,7 @@
         xmlns:Helper="clr-namespace:JStyleLib.Conotrls.Helper;assembly=JStyleLib"
         xmlns:Control="clr-namespace:JStyleLib.Conotrls;assembly=JStyleLib"
         xmlns:TaskBar="http://www.hardcodet.net/taskbar"
-                 xmlns:entity="clr-namespace:JEntity;assembly=JEntity"
+        xmlns:entity="clr-namespace:JEntity;assembly=JEntity"
         xmlns:Uc="clr-namespace:JStyleLib.UserControls;assembly=JStyleLib"
         Height="800" TitleBarVisibility="Visible" Icon="/JChat;component/Img/TaskBarIco.ico"
         Width="300" Style="{DynamicResource JWindowStyle}" TitleBackground="{DynamicResource BaseSystemBrush}" Background="{DynamicResource BaseSystemBrush}"

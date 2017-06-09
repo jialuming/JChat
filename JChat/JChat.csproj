@@ -90,9 +90,19 @@
     <Compile Include="ViewModel\JViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\JChat.xaml.cs">
+      <DependentUpon>JChat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\JCLogin.xaml.cs">
       <DependentUpon>JCLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\UCChat.xaml.cs">
+      <DependentUpon>UCChat.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\JChat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,6 +120,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\JCLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\UCChat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,14 @@
+﻿<Control:JWindow x:Class="JChat.Views.JChat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Control="clr-namespace:JStyleLib.Conotrls;assembly=JStyleLib"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Grid>
+        <Button/>
+        <TabControl TabStripPlacement="Left" >
+            <TextBox/>
+            <TabItem/>
+        </TabControl>
+    </Grid>
+</Control:JWindow>
