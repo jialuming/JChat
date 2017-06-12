@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JToolsLib
+namespace JService.Services
 {
-    public class Class1
+    class MessagePool
     {
     }
 }
